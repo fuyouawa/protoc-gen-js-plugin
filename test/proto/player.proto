@@ -3,10 +3,12 @@ syntax = "proto3";
 package test.player;
 
 import "entity.proto";
+import "entity2.proto";
 
 message Player {
     entity.Entity entity_info = 1;
-    Status entity_state = 6;
+    entity2.Entity entity_info2 = 2;
+    Status player_state = 3;
 }
 
 message GetPlayersResponse {

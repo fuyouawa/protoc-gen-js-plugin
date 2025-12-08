@@ -3,7 +3,8 @@
 
 // Package: test.player
 
-import { Entity } from './entity.mjs';
+import * as __Entity from './entity.mjs';
+import * as __Entity2 from './entity2.mjs';
 
 // Enum: Status
 export const Status = {
@@ -20,28 +21,39 @@ export class Player {
         package: "test.player",
         fields: [
             {name: "entity_info", number: 1, type: "Message", typeName: ".test.entity.Entity", label: "Optional"},
-            {name: "entity_state", number: 6, type: "Enum", typeName: ".test.player.Status", label: "Optional"}
+            {name: "entity_info2", number: 2, type: "Message", typeName: ".test.entity2.Entity", label: "Optional"},
+            {name: "player_state", number: 3, type: "Enum", typeName: ".test.player.Status", label: "Optional"}
         ]
     }
 
-    /** @return {Entity} */
+    /** @return {__Entity.Entity} */
     getEntityInfo() {
         return this.entity_info;
     }
 
-    /** @param {Entity} value */
+    /** @param {__Entity.Entity} value */
     setEntityInfo(value) {
         this.entity_info = value;
     }
 
+    /** @return {__Entity2.Entity} */
+    getEntityInfo2() {
+        return this.entity_info2;
+    }
+
+    /** @param {__Entity2.Entity} value */
+    setEntityInfo2(value) {
+        this.entity_info2 = value;
+    }
+
     /** @return {Status} */
-    getEntityState() {
-        return this.entity_state;
+    getPlayerState() {
+        return this.player_state;
     }
 
     /** @param {Status} value */
-    setEntityState(value) {
-        this.entity_state = value;
+    setPlayerState(value) {
+        this.player_state = value;
     }
 
 }

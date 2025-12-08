@@ -5,6 +5,9 @@ namespace ProtocJsGenPlugin;
 
 internal static class TypeHelper
 {
+    // 类型名转换器，用于将原始类型名转换为带别名的形式
+    public static Func<string, FileDescriptorProto, string?>? TypeNameTransformer { get; set; }
+
     public static string GetJsType(FieldDescriptorProto field, FileDescriptorProto protoFile)
     {
         var baseType = GetBaseJsType(field, protoFile);
@@ -59,10 +62,10 @@ internal static class TypeHelper
                 return "Uint8Array";
 
             case FieldDescriptorProto.Types.Type.Enum:
-                return field.TypeName.Split('.').Last();
+                return TypeNameTransformer?.Invoke(field.TypeName, protoFile) ?? field.TypeName.Split('.').Last();
 
             case FieldDescriptorProto.Types.Type.Message:
-                return GetMessageTypeName(field.TypeName, protoFile);
+                return TypeNameTransformer?.Invoke(field.TypeName, protoFile) ?? GetMessageTypeName(field.TypeName, protoFile);
 
             default:
                 return "any";

@@ -20,6 +20,7 @@ const config = {
   // 要处理的proto文件
   protoFiles: [
     'entity.proto',
+    'entity2.proto',
     'player.proto',
     'core/math.proto'
   ]
