@@ -4,6 +4,7 @@ using Google.Protobuf.Reflection;
 using System.Text;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ProtocJsGenPlugin;
 
@@ -125,6 +126,8 @@ internal class JsCodeGenerator
 {
     private readonly FileDescriptorProto _protoFile;
     private readonly StringBuilder _sb = new StringBuilder();
+    private readonly Dictionary<string, string> _nestedClassNames = new Dictionary<string, string>();
+    private readonly HashSet<string> _generatedNestedClasses = new HashSet<string>();
 
     public JsCodeGenerator(FileDescriptorProto protoFile)
     {
@@ -172,22 +175,48 @@ internal class JsCodeGenerator
         _sb.AppendLine();
     }
 
+    private string GetIndependentClassName(string fullTypeName)
+    {
+        // 移除前导点
+        if (fullTypeName.StartsWith("."))
+            fullTypeName = fullTypeName.Substring(1);
+
+        // 移除包名前缀
+        if (!string.IsNullOrEmpty(_protoFile.Package) && fullTypeName.StartsWith(_protoFile.Package + "."))
+        {
+            fullTypeName = fullTypeName.Substring(_protoFile.Package.Length + 1);
+        }
+
+        // 将点替换为下划线
+        string className = fullTypeName.Replace('.', '_');
+
+        // 添加前缀以确保不与顶级类名冲突
+        return "__" + className;
+    }
+
     private void GenerateMessage(DescriptorProto messageType, string indent, string parentFullName)
     {
         var className = messageType.Name;
         var fullName = string.IsNullOrEmpty(parentFullName) ? className : $"{parentFullName}.{className}";
         var isTopLevel = string.IsNullOrEmpty(indent);
 
-        if (isTopLevel)
+        if (!isTopLevel)
         {
-            _sb.AppendLine($"{indent}// Message: {className}");
-            _sb.AppendLine($"{indent}export class {className} {{");
+            // 嵌套消息不应该通过这个方法生成
+            return;
         }
-        else
+
+        // 首先为所有嵌套消息生成独立类定义
+        Dictionary<DescriptorProto, string> nestedIndependentClassNames = new Dictionary<DescriptorProto, string>();
+        foreach (var nestedMessage in messageType.NestedType)
         {
-            _sb.AppendLine($"{indent}// Nested message: {className}");
-            _sb.AppendLine($"{indent}static {className} = class {{");
+            string independentClassName = GenerateNestedMessageClass(nestedMessage, fullName);
+            nestedIndependentClassNames[nestedMessage] = independentClassName;
         }
+
+        // 生成顶级导出类
+        _sb.AppendLine($"{indent}// Message: {className}");
+        _sb.AppendLine($"{indent}export class {className} {{");
 
         // 静态描述符
         _sb.AppendLine($"{indent}    static __descriptor = {{");
@@ -202,11 +231,11 @@ internal class JsCodeGenerator
             GenerateFieldMethods(field, indent + "    ");
         }
 
-        // 生成嵌套消息
+        // 添加嵌套消息的静态引用
         foreach (var nestedMessage in messageType.NestedType)
         {
-            _sb.AppendLine();
-            GenerateMessage(nestedMessage, indent + "    ", fullName);
+            string independentClassName = nestedIndependentClassNames[nestedMessage];
+            _sb.AppendLine($"{indent}    static {nestedMessage.Name} = {independentClassName};");
         }
 
         // 生成嵌套枚举
@@ -216,16 +245,59 @@ internal class JsCodeGenerator
             GenerateNestedEnum(nestedEnum, indent + "    ");
         }
 
-        if (isTopLevel)
+        _sb.AppendLine($"{indent}}}");
+        _sb.AppendLine();
+    }
+
+    private string GenerateNestedMessageClass(DescriptorProto messageType, string parentFullName)
+    {
+        var className = messageType.Name;
+        var fullName = string.IsNullOrEmpty(parentFullName) ? className : $"{parentFullName}.{className}";
+
+        // 如果已经生成，则返回独立类名
+        if (_generatedNestedClasses.Contains(fullName))
         {
-            _sb.AppendLine($"{indent}}}");
-        }
-        else
-        {
-            _sb.AppendLine($"{indent}}};");
+            return GetIndependentClassName(fullName);
         }
 
+        _generatedNestedClasses.Add(fullName);
+
+        // 生成独立类定义
+        string independentClassName = GetIndependentClassName(fullName);
+        _sb.AppendLine($"class {independentClassName} {{");
+
+        // 静态描述符
+        _sb.AppendLine($"    static __descriptor = {{");
+        _sb.AppendLine($"        name: \"{className}\",");
+        _sb.AppendLine($"        fullName: \"{fullName}\",");
+        _sb.AppendLine($"    }}");
         _sb.AppendLine();
+
+        // 生成字段的getter/setter方法
+        foreach (var field in messageType.Field)
+        {
+            GenerateFieldMethods(field, "    ");
+        }
+
+        // 递归生成嵌套消息的独立类定义，并在当前类中添加静态引用
+        foreach (var nestedMessage in messageType.NestedType)
+        {
+            string nestedIndependentClassName = GenerateNestedMessageClass(nestedMessage, fullName);
+            // 在当前类中添加静态引用
+            _sb.AppendLine($"    static {nestedMessage.Name} = {nestedIndependentClassName};");
+        }
+
+        // 生成嵌套枚举（保持不变）
+        foreach (var nestedEnum in messageType.EnumType)
+        {
+            _sb.AppendLine();
+            GenerateNestedEnum(nestedEnum, "    ");
+        }
+
+        _sb.AppendLine($"}}");
+        _sb.AppendLine();
+
+        return independentClassName;
     }
 
     private void GenerateNestedEnum(EnumDescriptorProto enumType, string indent)
@@ -366,6 +438,20 @@ internal class JsCodeGenerator
         // 移除开头的"."，因为proto类型名以"."开头表示绝对路径
         if (typeName.StartsWith("."))
             typeName = typeName.Substring(1);
+
+        // 检查是否是当前文件中的嵌套消息
+        // 如果类型名包含点（除了包名之外的点），则可能是嵌套消息
+        if (!string.IsNullOrEmpty(_protoFile.Package) && typeName.StartsWith(_protoFile.Package + "."))
+        {
+            // 去掉包名部分
+            string withoutPackage = typeName.Substring(_protoFile.Package.Length + 1);
+            // 如果去掉包名后仍包含点，说明是嵌套消息
+            if (withoutPackage.Contains('.'))
+            {
+                // 返回独立类名
+                return GetIndependentClassName(typeName);
+            }
+        }
 
         // 返回类型名（简化处理，实际可能需要处理嵌套）
         return typeName.Split('.').Last();
