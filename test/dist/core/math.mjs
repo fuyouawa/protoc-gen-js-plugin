@@ -8,6 +8,12 @@ export class Vector3 {
     static __descriptor = {
         name: "Vector3",
         fullName: "test.core.Vector3",
+        package: "test.core",
+        fields: [
+            {name: "x", number: 1, type: "Double", label: "Optional"},
+            {name: "y", number: 2, type: "Double", label: "Optional"},
+            {name: "z", number: 3, type: "Double", label: "Optional"}
+        ]
     }
 
     /** @return {number} */

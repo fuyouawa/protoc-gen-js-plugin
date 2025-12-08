@@ -10,6 +10,11 @@ export class Entity {
     static __descriptor = {
         name: "Entity",
         fullName: "test.entity.Entity",
+        package: "test.entity",
+        fields: [
+            {name: "name", number: 1, type: "String", label: "Optional"},
+            {name: "position", number: 2, type: "Message", typeName: ".test.core.Vector3", label: "Optional"}
+        ]
     }
 
     /** @return {string} */

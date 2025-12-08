@@ -17,6 +17,11 @@ export class Player {
     static __descriptor = {
         name: "Player",
         fullName: "test.player.Player",
+        package: "test.player",
+        fields: [
+            {name: "entity_info", number: 1, type: "Message", typeName: ".test.entity.Entity", label: "Optional"},
+            {name: "entity_state", number: 6, type: "Enum", typeName: ".test.player.Status", label: "Optional"}
+        ]
     }
 
     /** @return {Entity} */
@@ -45,6 +50,11 @@ class __GetPlayersResponse_Result {
     static __descriptor = {
         name: "Result",
         fullName: "test.player.GetPlayersResponse.Result",
+        fields: [
+            {name: "success", number: 1, type: "Bool", label: "Optional"},
+            {name: "entity_id", number: 2, type: "Uint64", label: "Optional"},
+            {name: "player", number: 3, type: "Message", typeName: ".test.player.Player", label: "Optional"}
+        ]
     }
 
     /** @return {boolean} */
@@ -84,6 +94,10 @@ export class GetPlayersResponse {
     static __descriptor = {
         name: "GetPlayersResponse",
         fullName: "test.player.GetPlayersResponse",
+        package: "test.player",
+        fields: [
+            {name: "results", number: 1, type: "Message", typeName: ".test.player.GetPlayersResponse.Result", label: "Repeated"}
+        ]
     }
 
     /** @return {__GetPlayersResponse_Result[]} */

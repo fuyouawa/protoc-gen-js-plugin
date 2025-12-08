@@ -54,34 +54,36 @@ export class Player {
     }
 }
 
+class __GetPlayersResponse_Result {
+    static __descriptor = {
+        name: "Result",
+        fullName: "pokeworld.player.cs.GetPlayersResponse.Result",
+    }
+
+    /** @type {boolean} */
+    success;
+    /** @type {Player} */
+    player;
+
+    toJson() {
+        return {
+            success: this.success,
+            player: this.player.toJson(),
+        };
+    }
+
+    // 略......
+}
+
 export class GetPlayersResponse {
     static __descriptor = {
         name: "GetPlayersResponse",
         fullName: "pokeworld.player.cs.GetPlayersResponse",
     }
 
-    static Result = class {
-        static __descriptor = {
-            name: "Result",
-            fullName: "pokeworld.player.cs.GetPlayersResponse.Result",
-        }
+    static Result = 
 
-        /** @type {boolean} */
-        success;
-        /** @type {Player} */
-        player;
-
-        toJson() {
-            return {
-                success: this.success,
-                player: this.player.toJson(),
-            };
-        }
-
-        // 略......
-    }
-
-    /** @type {Result[]} */
+    /** @type {__GetPlayersResponse_Result[]} */
     results;
 
     toJson() {
@@ -119,37 +121,39 @@ export class Player {
     // 略......
 }
 
+class __GetPlayersResponse_Result {
+    static __descriptor = {
+        name: "Result",
+        fullName: "pokeworld.player.cs.GetPlayersResponse.Result",
+    }
+    
+    /** @type {boolean} */
+    get success() {
+        return this.success;
+    }
+    
+    /** @param {boolean} value */
+    set success(value) {
+        this.success = value;
+    }
+
+    // 略......
+}
+
 export class GetPlayersResponse {
     static __descriptor = {
         name: "GetPlayersResponse",
         fullName: "pokeworld.player.cs.GetPlayersResponse",
     }
 
-    static Result = class {
-        static __descriptor = {
-            name: "Result",
-            fullName: "pokeworld.player.cs.GetPlayersResponse.Result",
-        }
-        
-        /** @type {boolean} */
-        get success() {
-            return this.success;
-        }
-        
-        /** @param {boolean} value */
-        set success(value) {
-            this.success = value;
-        }
+    static Result = __GetPlayersResponse_Result;
 
-        // 略......
-    }
-
-    /** @type {Result[]} */
+    /** @type {__GetPlayersResponse_Result[]} */
     get results() {
         return this.results;
     }
     
-    /** @param {Result[]} value */
+    /** @param {__GetPlayersResponse_Result[]} value */
     set results(value) {
         this.results = value;
     }
@@ -183,37 +187,39 @@ export class Player {
     // 略......
 }
 
+class __GetPlayersResponse_Result {
+    static __descriptor = {
+        name: "Result",
+        fullName: "pokeworld.player.cs.GetPlayersResponse.Result",
+    }
+    
+    /** @return {boolean} */
+    getSuccess() {
+        return this.success;
+    }
+    
+    /** @param {boolean} value */
+    setSuccess(value) {
+        this.success = value;
+    }
+
+    // 略......
+}
+
 export class GetPlayersResponse {
     static __descriptor = {
         name: "GetPlayersResponse",
         fullName: "pokeworld.player.cs.GetPlayersResponse",
     }
 
-    static Result = class {
-        static __descriptor = {
-            name: "Result",
-            fullName: "pokeworld.player.cs.GetPlayersResponse.Result",
-        }
-        
-        /** @return {boolean} */
-        getSuccess() {
-            return this.success;
-        }
-        
-        /** @param {boolean} value */
-        setSuccess(value) {
-            this.success = value;
-        }
+    static Result = __GetPlayersResponse_Result;
 
-        // 略......
-    }
-
-    /** @return {Result[]} */
+    /** @return {__GetPlayersResponse_Result[]} */
     getResults() {
         return this.results;
     }
     
-    /** @param {Result[]} value */
+    /** @param {__GetPlayersResponse_Result[]} value */
     setResults(value) {
         this.results = value;
     }

@@ -160,6 +160,44 @@ internal class JsCodeGenerator
         _sb.AppendLine($"{indent}    static __descriptor = {{");
         _sb.AppendLine($"{indent}        name: \"{className}\",");
         _sb.AppendLine($"{indent}        fullName: \"{fullName}\",");
+        if (!string.IsNullOrEmpty(parentFullName))
+        {
+            _sb.AppendLine($"{indent}        package: \"{parentFullName}\",");
+        }
+        // 字段描述符
+        _sb.Append($"{indent}        fields: [");
+        if (messageType.Field.Count > 0)
+        {
+            _sb.AppendLine();
+            for (int i = 0; i < messageType.Field.Count; i++)
+            {
+                var field = messageType.Field[i];
+                _sb.Append($"{indent}            {{");
+                _sb.Append($"name: \"{field.Name}\", ");
+                _sb.Append($"number: {field.Number}, ");
+                _sb.Append($"type: \"{field.Type.ToString()}\", ");
+                if (!string.IsNullOrEmpty(field.TypeName))
+                {
+                    _sb.Append($"typeName: \"{field.TypeName}\", ");
+                }
+                _sb.Append($"label: \"{field.Label.ToString()}\"");
+                _sb.Append("}");
+                if (i < messageType.Field.Count - 1)
+                {
+                    _sb.AppendLine(",");
+                }
+                else
+                {
+                    _sb.AppendLine();
+                }
+            }
+            _sb.Append($"{indent}        ]");
+        }
+        else
+        {
+            _sb.Append("]");
+        }
+        _sb.AppendLine();
         _sb.AppendLine($"{indent}    }}");
         _sb.AppendLine();
 
@@ -208,6 +246,40 @@ internal class JsCodeGenerator
         _sb.AppendLine($"    static __descriptor = {{");
         _sb.AppendLine($"        name: \"{className}\",");
         _sb.AppendLine($"        fullName: \"{fullName}\",");
+        // 字段描述符
+        _sb.Append($"        fields: [");
+        if (messageType.Field.Count > 0)
+        {
+            _sb.AppendLine();
+            for (int i = 0; i < messageType.Field.Count; i++)
+            {
+                var field = messageType.Field[i];
+                _sb.Append($"            {{");
+                _sb.Append($"name: \"{field.Name}\", ");
+                _sb.Append($"number: {field.Number}, ");
+                _sb.Append($"type: \"{field.Type.ToString().Replace("Type.", "")}\", ");
+                if (!string.IsNullOrEmpty(field.TypeName))
+                {
+                    _sb.Append($"typeName: \"{field.TypeName}\", ");
+                }
+                _sb.Append($"label: \"{field.Label.ToString().Replace("Label.", "")}\"");
+                _sb.Append("}");
+                if (i < messageType.Field.Count - 1)
+                {
+                    _sb.AppendLine(",");
+                }
+                else
+                {
+                    _sb.AppendLine();
+                }
+            }
+            _sb.Append($"        ]");
+        }
+        else
+        {
+            _sb.Append("]");
+        }
+        _sb.AppendLine();
         _sb.AppendLine($"    }}");
         _sb.AppendLine();
 
