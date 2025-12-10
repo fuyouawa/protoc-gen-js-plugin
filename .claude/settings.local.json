@@ -10,7 +10,10 @@
       "Bash(cat:*)",
       "Bash(find:*)",
       "Bash(ls -la:*)",
-      "Bash(node build.mjs:*)"
+      "Bash(node build.mjs:*)",
+      "Bash(npm test)",
+      "Bash(npm run test:compatibility:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

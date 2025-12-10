@@ -1,0 +1,18 @@
+{
+  "name": "protoc-gen-js-plugin-test",
+  "version": "1.0.0",
+  "description": "Tests for protoc-gen-js-plugin",
+  "type": "module",
+  "scripts": {
+    "test": "node test.mjs",
+    "test:compatibility": "node test-protobuf-compatibility.mjs",
+    "build": "node build.mjs",
+    "clean": "rm -rf gen"
+  },
+  "devDependencies": {
+    "protobufjs": "^7.3.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

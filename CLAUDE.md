@@ -55,7 +55,7 @@ A test suite is provided in the `test/` directory:
    This script:
    - Scans `test/proto/` for all `.proto` files
    - Invokes `protoc` with the built plugin
-   - Generates JavaScript modules in `test/dist/`
+   - Generates JavaScript modules in `test/gen/`
 
 4. **View the streaming example**:
    ```bash
