@@ -309,10 +309,12 @@ void JsCodeGenerator::GenerateEnum(const EnumDescriptorProto& enum_type) {
     output_ << "export const " << enum_type.name() << " = {\n";
 
     for (const auto& value : enum_type.value()) {
-        output_ << "    " << value.name() << ": " << value.number() << ",\n";
+        std::string value_name = StripEnumValuePrefix(enum_type.name(), value.name());
+        output_ << "    " << value_name << ": " << value.number() << ",\n";
     }
 
-    output_ << "};\n\n";
+    output_ << "};\n";
+    output_ << "Object.freeze(" << enum_type.name() << ");\n\n";
 }
 
 void JsCodeGenerator::GenerateMessage(
@@ -499,10 +501,12 @@ void JsCodeGenerator::GenerateNestedEnum(
     output_ << indent << "static " << enum_type.name() << " = {\n";
 
     for (const auto& value : enum_type.value()) {
-        output_ << indent << "    " << value.name() << ": " << value.number() << ",\n";
+        std::string value_name = StripEnumValuePrefix(enum_type.name(), value.name());
+        output_ << indent << "    " << value_name << ": " << value.number() << ",\n";
     }
 
     output_ << indent << "};\n";
+    output_ << indent << "Object.freeze(" << enum_type.name() << ");\n";
 }
 
 void JsCodeGenerator::GenerateFieldMethods(

@@ -7,11 +7,12 @@ import * as __PokeworldInventoryComm_inventory from './comm_inventory.mjs';
 
 // Enum: MessageId
 export const MessageId = {
-    MESSAGE_ID_INVALID: 0,
-    MESSAGE_ID_PULL_REQUEST: 1,
-    MESSAGE_ID_SYNC_NOTIFY: 2,
-    MESSAGE_ID_SWAP_SLOT_REQUEST: 3,
+    INVALID: 0,
+    PULL_REQUEST: 1,
+    SYNC_NOTIFY: 2,
+    SWAP_SLOT_REQUEST: 3,
 };
+Object.freeze(MessageId);
 
 // Message: PullRequest
 export class PullRequest {

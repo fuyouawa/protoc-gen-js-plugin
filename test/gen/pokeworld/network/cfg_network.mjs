@@ -5,9 +5,10 @@
 
 // Enum: ServerType
 export const ServerType = {
-    SERVERTYPE_MAIN: 0,
-    SERVERTYPE_RESOURCE_DOWNLOAD: 1,
+    MAIN: 0,
+    RESOURCE_DOWNLOAD: 1,
 };
+Object.freeze(ServerType);
 
 // Message: Server
 export class Server {

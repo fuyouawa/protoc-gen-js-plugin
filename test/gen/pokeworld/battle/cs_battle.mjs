@@ -7,4 +7,5 @@
 export const MessageId = {
     MSG_ID_INVALID: 0,
 };
+Object.freeze(MessageId);
 

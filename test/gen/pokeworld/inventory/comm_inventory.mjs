@@ -9,6 +9,7 @@ export const Tab = {
     KNAPSACK: 1,
     QUICK_USE: 2,
 };
+Object.freeze(Tab);
 
 // Message: Slot
 export class Slot {

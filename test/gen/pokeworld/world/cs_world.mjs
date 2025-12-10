@@ -7,12 +7,13 @@ import * as __PokeworldEntityComm_entity from '../entity/comm_entity.mjs';
 
 // Enum: MessageId
 export const MessageId = {
-    MESSAGE_ID_INVALID: 0,
-    MESSAGE_ID_MOVE_REQUEST: 1001,
-    MESSAGE_ID_EXIT_REQUEST: 1002,
-    MESSAGE_ID_EXIT_RESPONSE: 1003,
-    MESSAGE_ID_ENTITY_SYNC_NOTIFY: 1004,
+    INVALID: 0,
+    MOVE_REQUEST: 1001,
+    EXIT_REQUEST: 1002,
+    EXIT_RESPONSE: 1003,
+    ENTITY_SYNC_NOTIFY: 1004,
 };
+Object.freeze(MessageId);
 
 // Message: MoveRequest
 export class MoveRequest {

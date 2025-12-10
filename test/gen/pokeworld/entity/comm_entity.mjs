@@ -7,25 +7,28 @@ import * as __PokeworldMathComm_math from '../math/comm_math.mjs';
 
 // Enum: Type
 export const Type = {
-    TYPE_PLAYER: 0,
-    TYPE_POKEMON: 1,
+    PLAYER: 0,
+    POKEMON: 1,
 };
+Object.freeze(Type);
 
 // Enum: Direction
 export const Direction = {
-    DIRECTION_UP: 0,
-    DIRECTION_DOWN: 1,
-    DIRECTION_LEFT: 2,
-    DIRECTION_RIGHT: 3,
+    UP: 0,
+    DOWN: 1,
+    LEFT: 2,
+    RIGHT: 3,
 };
+Object.freeze(Direction);
 
 // Enum: MotionState
 export const MotionState = {
-    MOTION_STATE_IDLE: 0,
-    MOTION_STATE_MOVEMENT: 1,
-    MOTION_STATE_JUMP: 2,
-    MOTION_STATE_TELEPORT: 3,
+    IDLE: 0,
+    MOVEMENT: 1,
+    JUMP: 2,
+    TELEPORT: 3,
 };
+Object.freeze(MotionState);
 
 // Message: EntityInfo
 export class EntityInfo {

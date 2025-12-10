@@ -8,9 +8,10 @@ import * as __PokeworldWorldCfg_world from './cfg_world.mjs';
 
 // Enum: TerrainType
 export const TerrainType = {
-    TERRAIN_TYPE_TERRAIN: 0,
-    TERRAIN_TYPE_COMPOSITE_TERRAIN: 1,
+    TERRAIN: 0,
+    COMPOSITE_TERRAIN: 1,
 };
+Object.freeze(TerrainType);
 
 // Message: TerrainDefinitionNode
 export class TerrainDefinitionNode {

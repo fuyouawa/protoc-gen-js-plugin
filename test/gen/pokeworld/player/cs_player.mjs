@@ -7,12 +7,13 @@ import * as __PokeworldEntityComm_entity from '../entity/comm_entity.mjs';
 
 // Enum: MessageId
 export const MessageId = {
-    MESSAGE_ID_INVALID: 0,
-    MESSAGE_ID_START_REQUEST: 1001,
-    MESSAGE_ID_START_RESPONSE: 1002,
-    MESSAGE_ID_GET_PLAYER_REQUEST: 1003,
-    MESSAGE_ID_GET_PLAYER_RESPONSE: 1004,
+    INVALID: 0,
+    START_REQUEST: 1001,
+    START_RESPONSE: 1002,
+    GET_PLAYER_REQUEST: 1003,
+    GET_PLAYER_RESPONSE: 1004,
 };
+Object.freeze(MessageId);
 
 // Message: JoinGameRequest
 export class JoinGameRequest {

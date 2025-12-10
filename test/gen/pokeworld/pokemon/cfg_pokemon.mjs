@@ -7,33 +7,35 @@ import * as __PokeworldResourceCfg_resource from '../resource/cfg_resource.mjs';
 
 // Enum: MoveCategory
 export const MoveCategory = {
-    MOVECATEGORY_PHYSICAL: 0,
-    MOVECATEGORY_SPECIAL: 1,
-    MOVECATEGORY_STATUS: 2,
+    PHYSICAL: 0,
+    SPECIAL: 1,
+    STATUS: 2,
 };
+Object.freeze(MoveCategory);
 
 // Enum: PokeType
 export const PokeType = {
-    POKETYPE_NORMAL: 0,
-    POKETYPE_FLYING: 1,
-    POKETYPE_FIRE: 2,
-    POKETYPE_PSYCHIC: 3,
-    POKETYPE_WATER: 4,
-    POKETYPE_BUG: 5,
-    POKETYPE_ELECTRIC: 6,
-    POKETYPE_ROCK: 7,
-    POKETYPE_GRASS: 8,
-    POKETYPE_GHOST: 9,
-    POKETYPE_ICE: 10,
-    POKETYPE_DRAGON: 11,
-    POKETYPE_FIGHTING: 12,
-    POKETYPE_DARK: 13,
-    POKETYPE_POISON: 14,
-    POKETYPE_STEEL: 15,
-    POKETYPE_GROUND: 16,
-    POKETYPE_FAIRY: 17,
-    POKETYPE_UNKNOWN: 18,
+    NORMAL: 0,
+    FLYING: 1,
+    FIRE: 2,
+    PSYCHIC: 3,
+    WATER: 4,
+    BUG: 5,
+    ELECTRIC: 6,
+    ROCK: 7,
+    GRASS: 8,
+    GHOST: 9,
+    ICE: 10,
+    DRAGON: 11,
+    FIGHTING: 12,
+    DARK: 13,
+    POISON: 14,
+    STEEL: 15,
+    GROUND: 16,
+    FAIRY: 17,
+    UNKNOWN: 18,
 };
+Object.freeze(PokeType);
 
 // Message: Move
 export class Move {

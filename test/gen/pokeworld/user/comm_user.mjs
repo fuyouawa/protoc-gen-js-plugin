@@ -5,8 +5,9 @@
 
 // Enum: Config
 export const Config = {
-    CONFIG_INVALID: 0,
-    CONFIG_PASSWORLD_MIN_LENGTH: 6,
-    CONFIG_PASSWORLD_MAX_LENGTH: 20,
+    INVALID: 0,
+    PASSWORLD_MIN_LENGTH: 6,
+    PASSWORLD_MAX_LENGTH: 20,
 };
+Object.freeze(Config);
 
