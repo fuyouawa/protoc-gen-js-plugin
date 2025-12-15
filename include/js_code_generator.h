@@ -54,7 +54,8 @@ private:
         const std::string& parent_full_name);
     void GenerateNestedEnum(
         const google::protobuf::EnumDescriptorProto& enum_type,
-        const std::string& indent);
+        const std::string& indent,
+        const std::string& parent_full_name = "");
     void GenerateFieldMethods(
         const google::protobuf::FieldDescriptorProto& field,
         const std::string& indent,

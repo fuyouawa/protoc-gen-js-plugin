@@ -18,5 +18,29 @@ export const ModuleId = {
     WORLD: 1010,
     ACTOR: 1011,
 };
+Object.defineProperty(ModuleId, "__descriptor", {
+    value: {
+        name: "ModuleId",
+        get clrType() { return ModuleId; },
+        fullName: "pokeworld.module.ModuleId",
+        package: "pokeworld.module",
+        values: [
+            {name: "INVALID", originalName: "MODULE_ID_INVALID", number: 0},
+            {name: "AGENT", originalName: "MODULE_ID_AGENT", number: 1001},
+            {name: "BATTLE", originalName: "MODULE_ID_BATTLE", number: 1002},
+            {name: "ENTITY", originalName: "MODULE_ID_ENTITY", number: 1003},
+            {name: "INVENTORY", originalName: "MODULE_ID_INVENTORY", number: 1004},
+            {name: "MATH", originalName: "MODULE_ID_MATH", number: 1005},
+            {name: "NETWORK", originalName: "MODULE_ID_NETWORK", number: 1006},
+            {name: "PLAYER", originalName: "MODULE_ID_PLAYER", number: 1007},
+            {name: "POKEMON", originalName: "MODULE_ID_POKEMON", number: 1008},
+            {name: "USER", originalName: "MODULE_ID_USER", number: 1009},
+            {name: "WORLD", originalName: "MODULE_ID_WORLD", number: 1010},
+            {name: "ACTOR", originalName: "MODULE_ID_ACTOR", number: 1011}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(ModuleId);
 

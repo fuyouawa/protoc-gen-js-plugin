@@ -11,6 +11,20 @@ export const TerrainType = {
     TERRAIN: 0,
     COMPOSITE_TERRAIN: 1,
 };
+Object.defineProperty(TerrainType, "__descriptor", {
+    value: {
+        name: "TerrainType",
+        get clrType() { return TerrainType; },
+        fullName: "pokeworld.world.comm.TerrainType",
+        package: "pokeworld.world.comm",
+        values: [
+            {name: "TERRAIN", originalName: "TERRAIN_TYPE_TERRAIN", number: 0},
+            {name: "COMPOSITE_TERRAIN", originalName: "TERRAIN_TYPE_COMPOSITE_TERRAIN", number: 1}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(TerrainType);
 
 // Message: TerrainDefinitionNode

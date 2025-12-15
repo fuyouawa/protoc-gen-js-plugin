@@ -12,6 +12,22 @@ export const MessageId = {
     SYNC_NOTIFY: 2,
     SWAP_SLOT_REQUEST: 3,
 };
+Object.defineProperty(MessageId, "__descriptor", {
+    value: {
+        name: "MessageId",
+        get clrType() { return MessageId; },
+        fullName: "pokeworld.inventory.cs.MessageId",
+        package: "pokeworld.inventory.cs",
+        values: [
+            {name: "INVALID", originalName: "MESSAGE_ID_INVALID", number: 0},
+            {name: "PULL_REQUEST", originalName: "MESSAGE_ID_PULL_REQUEST", number: 1},
+            {name: "SYNC_NOTIFY", originalName: "MESSAGE_ID_SYNC_NOTIFY", number: 2},
+            {name: "SWAP_SLOT_REQUEST", originalName: "MESSAGE_ID_SWAP_SLOT_REQUEST", number: 3}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(MessageId);
 
 // Message: PullRequest

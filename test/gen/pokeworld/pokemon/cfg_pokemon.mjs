@@ -11,6 +11,21 @@ export const MoveCategory = {
     SPECIAL: 1,
     STATUS: 2,
 };
+Object.defineProperty(MoveCategory, "__descriptor", {
+    value: {
+        name: "MoveCategory",
+        get clrType() { return MoveCategory; },
+        fullName: "pokeworld.pokemon.cfg.MoveCategory",
+        package: "pokeworld.pokemon.cfg",
+        values: [
+            {name: "PHYSICAL", originalName: "MOVECATEGORY_PHYSICAL", number: 0},
+            {name: "SPECIAL", originalName: "MOVECATEGORY_SPECIAL", number: 1},
+            {name: "STATUS", originalName: "MOVECATEGORY_STATUS", number: 2}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(MoveCategory);
 
 // Enum: PokeType
@@ -35,6 +50,37 @@ export const PokeType = {
     FAIRY: 17,
     UNKNOWN: 18,
 };
+Object.defineProperty(PokeType, "__descriptor", {
+    value: {
+        name: "PokeType",
+        get clrType() { return PokeType; },
+        fullName: "pokeworld.pokemon.cfg.PokeType",
+        package: "pokeworld.pokemon.cfg",
+        values: [
+            {name: "NORMAL", originalName: "POKETYPE_NORMAL", number: 0},
+            {name: "FLYING", originalName: "POKETYPE_FLYING", number: 1},
+            {name: "FIRE", originalName: "POKETYPE_FIRE", number: 2},
+            {name: "PSYCHIC", originalName: "POKETYPE_PSYCHIC", number: 3},
+            {name: "WATER", originalName: "POKETYPE_WATER", number: 4},
+            {name: "BUG", originalName: "POKETYPE_BUG", number: 5},
+            {name: "ELECTRIC", originalName: "POKETYPE_ELECTRIC", number: 6},
+            {name: "ROCK", originalName: "POKETYPE_ROCK", number: 7},
+            {name: "GRASS", originalName: "POKETYPE_GRASS", number: 8},
+            {name: "GHOST", originalName: "POKETYPE_GHOST", number: 9},
+            {name: "ICE", originalName: "POKETYPE_ICE", number: 10},
+            {name: "DRAGON", originalName: "POKETYPE_DRAGON", number: 11},
+            {name: "FIGHTING", originalName: "POKETYPE_FIGHTING", number: 12},
+            {name: "DARK", originalName: "POKETYPE_DARK", number: 13},
+            {name: "POISON", originalName: "POKETYPE_POISON", number: 14},
+            {name: "STEEL", originalName: "POKETYPE_STEEL", number: 15},
+            {name: "GROUND", originalName: "POKETYPE_GROUND", number: 16},
+            {name: "FAIRY", originalName: "POKETYPE_FAIRY", number: 17},
+            {name: "UNKNOWN", originalName: "POKETYPE_UNKNOWN", number: 18}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(PokeType);
 
 // Message: Move

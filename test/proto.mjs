@@ -19,9 +19,10 @@ export function toJson(message, space) {
 
 /**
  * 将JSON数据反序列化为Protobuf消息实例
- * @param {Function} messageCls - Protobuf消息类（必须包含__descriptor）
+ * @template T
+ * @param {new (...args: any[]) => T} messageCls - Protobuf消息类的构造函数
  * @param {Object|string} json - JSON对象或JSON字符串
- * @returns {Object} 消息实例
+ * @returns {T} 消息实例
  * @throws {Error} 如果参数无效或JSON解析失败
  */
 export function fromJson(messageCls, json) {
@@ -54,14 +55,8 @@ export function fromJson(messageCls, json) {
 
     // 遍历字段并设置值
     for (const field of desc.fields) {
-        const fieldName = field.name; // camelCase in __descriptor
-        // Try camelCase first, then snake_case for compatibility
-        let jsonValue = json[fieldName];
-        if (jsonValue === undefined) {
-            // Try converting camelCase to snake_case
-            const snakeCaseName = camelToSnake(fieldName);
-            jsonValue = json[snakeCaseName];
-        }
+        const fieldName = field.name;
+        const jsonValue = json[fieldName];
 
         // 如果JSON中没有该字段，跳过（可能是可选字段）
         if (jsonValue === undefined) {
@@ -76,7 +71,22 @@ export function fromJson(messageCls, json) {
     return instance;
 }
 
+/**
+ * 处理Protobuf字段值，支持重复字段和嵌套消息
+ * @private
+ * @param {Object} field - 字段描述符对象
+ * @param {any} value - 原始值（JSON格式）
+ * @returns {any} 处理后的值
+ * @throws {Error} 如果字段类型不匹配或值无效
+ */
 function processFieldValue(field, value) {
+    // 参数验证
+    if (field === null || field === undefined) {
+        throw new Error('field cannot be null or undefined');
+    }
+    if (typeof field !== 'object') {
+        throw new Error('field must be an object');
+    }
     const { label, name } = field;
 
     // 处理重复字段（数组）
@@ -96,17 +106,22 @@ function processFieldValue(field, value) {
     return processSingleFieldValue(field, value);
 }
 
-// Convert camelCase to snake_case
-function camelToSnake(str) {
-    return str.replace(/([A-Z])/g, '_$1').toLowerCase();
-}
-
-// Convert snake_case to camelCase
-function snakeToCamel(str) {
-    return str.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
-}
-
+/**
+ * 处理单个Protobuf字段值（非重复字段）
+ * @private
+ * @param {Object} field - 字段描述符对象
+ * @param {any} value - 原始值（JSON格式）
+ * @returns {any} 处理后的值
+ * @throws {Error} 如果字段类型不匹配或值无效
+ */
 function processSingleFieldValue(field, value) {
+    // 参数验证
+    if (field === null || field === undefined) {
+        throw new Error('field cannot be null or undefined');
+    }
+    if (typeof field !== 'object') {
+        throw new Error('field must be an object');
+    }
     const { type, clrType, name } = field;
 
     // 处理null值（可选字段可能为null）

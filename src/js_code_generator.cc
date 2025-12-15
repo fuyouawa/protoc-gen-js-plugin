@@ -314,6 +314,45 @@ void JsCodeGenerator::GenerateEnum(const EnumDescriptorProto& enum_type) {
     }
 
     output_ << "};\n";
+
+    // Generate __descriptor for enum
+    std::string full_name = enum_type.name();
+    if (!proto_file_.package().empty()) {
+        full_name = proto_file_.package() + "." + full_name;
+    }
+
+    output_ << "Object.defineProperty(" << enum_type.name() << ", \"__descriptor\", {\n";
+    output_ << "    value: {\n";
+    output_ << "        name: \"" << enum_type.name() << "\",\n";
+    output_ << "        get clrType() { return " << enum_type.name() << "; },\n";
+    output_ << "        fullName: \"" << full_name << "\",\n";
+    if (!proto_file_.package().empty()) {
+        output_ << "        package: \"" << proto_file_.package() << "\",\n";
+    }
+
+    // Enum values
+    output_ << "        values: [";
+    if (enum_type.value_size() > 0) {
+        output_ << "\n";
+        for (int i = 0; i < enum_type.value_size(); ++i) {
+            const auto& value = enum_type.value(i);
+            std::string value_name = StripEnumValuePrefix(enum_type.name(), value.name());
+            output_ << "            {name: \"" << value_name << "\", originalName: \"" << value.name() << "\", number: " << value.number() << "}";
+            if (i < enum_type.value_size() - 1) {
+                output_ << ",\n";
+            } else {
+                output_ << "\n";
+            }
+        }
+        output_ << "        ]";
+    } else {
+        output_ << "]";
+    }
+    output_ << "\n    },\n";
+    output_ << "    enumerable: false,\n";
+    output_ << "    writable: false,\n";
+    output_ << "});\n";
+
     output_ << "Object.freeze(" << enum_type.name() << ");\n\n";
 }
 
@@ -404,7 +443,7 @@ void JsCodeGenerator::GenerateMessage(
     // Generate nested enums
     for (const EnumDescriptorProto& nested_enum : message_type.enum_type()) {
         output_ << "\n";
-        GenerateNestedEnum(nested_enum, indent + "    ");
+        GenerateNestedEnum(nested_enum, indent + "    ", full_name);
     }
 
     output_ << indent << "}\n\n";
@@ -487,7 +526,7 @@ std::string JsCodeGenerator::GenerateNestedMessageClass(
     // Generate nested enums
     for (const EnumDescriptorProto& nested_enum : message_type.enum_type()) {
         output_ << "\n";
-        GenerateNestedEnum(nested_enum, "    ");
+        GenerateNestedEnum(nested_enum, "    ", full_name);
     }
 
     output_ << "}\n\n";
@@ -497,7 +536,8 @@ std::string JsCodeGenerator::GenerateNestedMessageClass(
 
 void JsCodeGenerator::GenerateNestedEnum(
     const EnumDescriptorProto& enum_type,
-    const std::string& indent) {
+    const std::string& indent,
+    const std::string& parent_full_name) {
 
     output_ << indent << "// Nested enum: " << enum_type.name() << "\n";
     output_ << indent << "static " << enum_type.name() << " = {\n";
@@ -508,6 +548,46 @@ void JsCodeGenerator::GenerateNestedEnum(
     }
 
     output_ << indent << "};\n";
+
+    // Generate __descriptor for nested enum
+    std::string full_name = enum_type.name();
+    if (!parent_full_name.empty()) {
+        full_name = parent_full_name + "." + full_name;
+    }
+
+    output_ << indent << "Object.defineProperty(" << enum_type.name() << ", \"__descriptor\", {\n";
+    output_ << indent << "    value: {\n";
+    output_ << indent << "        name: \"" << enum_type.name() << "\",\n";
+    output_ << indent << "        get clrType() { return " << enum_type.name() << "; },\n";
+    output_ << indent << "        fullName: \"" << full_name << "\",\n";
+    if (!parent_full_name.empty()) {
+        output_ << indent << "        package: \"" << parent_full_name << "\",\n";
+    }
+
+    // Enum values
+    output_ << indent << "        values: [";
+    if (enum_type.value_size() > 0) {
+        output_ << "\n";
+        for (int i = 0; i < enum_type.value_size(); ++i) {
+            const auto& value = enum_type.value(i);
+            std::string value_name = StripEnumValuePrefix(enum_type.name(), value.name());
+            output_ << indent << "            {name: \"" << value_name << "\", originalName: \"" << value.name() << "\", number: " << value.number() << "}";
+            if (i < enum_type.value_size() - 1) {
+                output_ << ",\n";
+            } else {
+                output_ << "\n";
+            }
+        }
+        output_ << indent << "        ]";
+    } else {
+        output_ << "]";
+    }
+    output_ << "\n";
+    output_ << indent << "    },\n";
+    output_ << indent << "    enumerable: false,\n";
+    output_ << indent << "    writable: false,\n";
+    output_ << indent << "});\n";
+    
     output_ << indent << "Object.freeze(" << enum_type.name() << ");\n";
 }
 

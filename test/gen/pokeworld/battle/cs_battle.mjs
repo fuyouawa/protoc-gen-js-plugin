@@ -7,5 +7,18 @@
 export const MessageId = {
     MSG_ID_INVALID: 0,
 };
+Object.defineProperty(MessageId, "__descriptor", {
+    value: {
+        name: "MessageId",
+        get clrType() { return MessageId; },
+        fullName: "pokeworld.battle.cs.MessageId",
+        package: "pokeworld.battle.cs",
+        values: [
+            {name: "MSG_ID_INVALID", originalName: "MSG_ID_INVALID", number: 0}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(MessageId);
 

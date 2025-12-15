@@ -14,6 +14,24 @@ export const TerrainFlags = {
     OBSTACLE: 8,
     SINGLE_WAY: 16,
 };
+Object.defineProperty(TerrainFlags, "__descriptor", {
+    value: {
+        name: "TerrainFlags",
+        get clrType() { return TerrainFlags; },
+        fullName: "pokeworld.world.cfg.TerrainFlags",
+        package: "pokeworld.world.cfg",
+        values: [
+            {name: "NONE", originalName: "TERRAINFLAGS_NONE", number: 0},
+            {name: "WALKABLE", originalName: "TERRAINFLAGS_WALKABLE", number: 1},
+            {name: "NOWALKABLE", originalName: "TERRAINFLAGS_NOWALKABLE", number: 2},
+            {name: "PASSABLE", originalName: "TERRAINFLAGS_PASSABLE", number: 4},
+            {name: "OBSTACLE", originalName: "TERRAINFLAGS_OBSTACLE", number: 8},
+            {name: "SINGLE_WAY", originalName: "TERRAINFLAGS_SINGLE_WAY", number: 16}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(TerrainFlags);
 
 // Enum: TerrainRuleType
@@ -24,6 +42,23 @@ export const TerrainRuleType = {
     EXTERIOR_CORNER: 3,
     INTERIOR_CORNER: 4,
 };
+Object.defineProperty(TerrainRuleType, "__descriptor", {
+    value: {
+        name: "TerrainRuleType",
+        get clrType() { return TerrainRuleType; },
+        fullName: "pokeworld.world.cfg.TerrainRuleType",
+        package: "pokeworld.world.cfg",
+        values: [
+            {name: "NONE", originalName: "TERRAINRULETYPE_NONE", number: 0},
+            {name: "FILL", originalName: "TERRAINRULETYPE_FILL", number: 1},
+            {name: "EDGE", originalName: "TERRAINRULETYPE_EDGE", number: 2},
+            {name: "EXTERIOR_CORNER", originalName: "TERRAINRULETYPE_EXTERIOR_CORNER", number: 3},
+            {name: "INTERIOR_CORNER", originalName: "TERRAINRULETYPE_INTERIOR_CORNER", number: 4}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(TerrainRuleType);
 
 // Enum: TerrainTileRuleType
@@ -43,6 +78,32 @@ export const TerrainTileRuleType = {
     BOTTOM_RIGHT_INTERIOR_CORNER: 12,
     BOTTOM_LEFT_INTERIOR_CORNER: 13,
 };
+Object.defineProperty(TerrainTileRuleType, "__descriptor", {
+    value: {
+        name: "TerrainTileRuleType",
+        get clrType() { return TerrainTileRuleType; },
+        fullName: "pokeworld.world.cfg.TerrainTileRuleType",
+        package: "pokeworld.world.cfg",
+        values: [
+            {name: "NONE", originalName: "TERRAINTILERULETYPE_NONE", number: 0},
+            {name: "FILL", originalName: "TERRAINTILERULETYPE_FILL", number: 1},
+            {name: "TOP_EDGE", originalName: "TERRAINTILERULETYPE_TOP_EDGE", number: 2},
+            {name: "RIGHT_EDGE", originalName: "TERRAINTILERULETYPE_RIGHT_EDGE", number: 3},
+            {name: "BOTTOM_EDGE", originalName: "TERRAINTILERULETYPE_BOTTOM_EDGE", number: 4},
+            {name: "LEFT_EDGE", originalName: "TERRAINTILERULETYPE_LEFT_EDGE", number: 5},
+            {name: "TOP_LEFT_EXTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_TOP_LEFT_EXTERIOR_CORNER", number: 6},
+            {name: "TOP_RIGHT_EXTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_TOP_RIGHT_EXTERIOR_CORNER", number: 7},
+            {name: "BOTTOM_RIGHT_EXTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_BOTTOM_RIGHT_EXTERIOR_CORNER", number: 8},
+            {name: "BOTTOM_LEFT_EXTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_BOTTOM_LEFT_EXTERIOR_CORNER", number: 9},
+            {name: "TOP_LEFT_INTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_TOP_LEFT_INTERIOR_CORNER", number: 10},
+            {name: "TOP_RIGHT_INTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_TOP_RIGHT_INTERIOR_CORNER", number: 11},
+            {name: "BOTTOM_RIGHT_INTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_BOTTOM_RIGHT_INTERIOR_CORNER", number: 12},
+            {name: "BOTTOM_LEFT_INTERIOR_CORNER", originalName: "TERRAINTILERULETYPE_BOTTOM_LEFT_INTERIOR_CORNER", number: 13}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(TerrainTileRuleType);
 
 // Enum: TerrainType
@@ -54,6 +115,24 @@ export const TerrainType = {
     LADDER: 4,
     WATER: 5,
 };
+Object.defineProperty(TerrainType, "__descriptor", {
+    value: {
+        name: "TerrainType",
+        get clrType() { return TerrainType; },
+        fullName: "pokeworld.world.cfg.TerrainType",
+        package: "pokeworld.world.cfg",
+        values: [
+            {name: "NONE", originalName: "TERRAINTYPE_NONE", number: 0},
+            {name: "AIR", originalName: "TERRAINTYPE_AIR", number: 1},
+            {name: "ROAD", originalName: "TERRAINTYPE_ROAD", number: 2},
+            {name: "STAIR", originalName: "TERRAINTYPE_STAIR", number: 3},
+            {name: "LADDER", originalName: "TERRAINTYPE_LADDER", number: 4},
+            {name: "WATER", originalName: "TERRAINTYPE_WATER", number: 5}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(TerrainType);
 
 // Message: Terrain

@@ -8,6 +8,20 @@ export const ServerType = {
     MAIN: 0,
     RESOURCE_DOWNLOAD: 1,
 };
+Object.defineProperty(ServerType, "__descriptor", {
+    value: {
+        name: "ServerType",
+        get clrType() { return ServerType; },
+        fullName: "pokeworld.network.cfg.ServerType",
+        package: "pokeworld.network.cfg",
+        values: [
+            {name: "MAIN", originalName: "SERVERTYPE_MAIN", number: 0},
+            {name: "RESOURCE_DOWNLOAD", originalName: "SERVERTYPE_RESOURCE_DOWNLOAD", number: 1}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(ServerType);
 
 // Message: Server

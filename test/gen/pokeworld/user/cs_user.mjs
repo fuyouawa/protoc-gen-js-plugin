@@ -17,6 +17,29 @@ export const MessageId = {
     GET_CREATED_PLAYERS_REQUEST: 1009,
     GET_CREATED_PLAYERS_RESPONSE: 1010,
 };
+Object.defineProperty(MessageId, "__descriptor", {
+    value: {
+        name: "MessageId",
+        get clrType() { return MessageId; },
+        fullName: "pokeworld.user.cs.MessageId",
+        package: "pokeworld.user.cs",
+        values: [
+            {name: "INVALID", originalName: "MESSAGE_ID_INVALID", number: 0},
+            {name: "REGISTER_REQUEST", originalName: "MESSAGE_ID_REGISTER_REQUEST", number: 1001},
+            {name: "REGISTER_RESPONSE", originalName: "MESSAGE_ID_REGISTER_RESPONSE", number: 1002},
+            {name: "LOGIN_REQUEST", originalName: "MESSAGE_ID_LOGIN_REQUEST", number: 1003},
+            {name: "LOGIN_RESPONSE", originalName: "MESSAGE_ID_LOGIN_RESPONSE", number: 1004},
+            {name: "ENTER_SERVER_REQUEST", originalName: "MESSAGE_ID_ENTER_SERVER_REQUEST", number: 1005},
+            {name: "ENTER_SERVER_RESPONSE", originalName: "MESSAGE_ID_ENTER_SERVER_RESPONSE", number: 1006},
+            {name: "GET_SERVERS_REQUEST", originalName: "MESSAGE_ID_GET_SERVERS_REQUEST", number: 1007},
+            {name: "GET_SERVERS_RESPONSE", originalName: "MESSAGE_ID_GET_SERVERS_RESPONSE", number: 1008},
+            {name: "GET_CREATED_PLAYERS_REQUEST", originalName: "MESSAGE_ID_GET_CREATED_PLAYERS_REQUEST", number: 1009},
+            {name: "GET_CREATED_PLAYERS_RESPONSE", originalName: "MESSAGE_ID_GET_CREATED_PLAYERS_RESPONSE", number: 1010}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(MessageId);
 
 // Message: RegisterRequest

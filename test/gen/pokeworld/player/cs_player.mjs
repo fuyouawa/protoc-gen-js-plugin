@@ -13,6 +13,23 @@ export const MessageId = {
     GET_PLAYER_REQUEST: 1003,
     GET_PLAYER_RESPONSE: 1004,
 };
+Object.defineProperty(MessageId, "__descriptor", {
+    value: {
+        name: "MessageId",
+        get clrType() { return MessageId; },
+        fullName: "pokeworld.player.cs.MessageId",
+        package: "pokeworld.player.cs",
+        values: [
+            {name: "INVALID", originalName: "MESSAGE_ID_INVALID", number: 0},
+            {name: "START_REQUEST", originalName: "MESSAGE_ID_START_REQUEST", number: 1001},
+            {name: "START_RESPONSE", originalName: "MESSAGE_ID_START_RESPONSE", number: 1002},
+            {name: "GET_PLAYER_REQUEST", originalName: "MESSAGE_ID_GET_PLAYER_REQUEST", number: 1003},
+            {name: "GET_PLAYER_RESPONSE", originalName: "MESSAGE_ID_GET_PLAYER_RESPONSE", number: 1004}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(MessageId);
 
 // Message: JoinGameRequest

@@ -23,6 +23,35 @@ export const ResourceId = {
     ACTOR_ART_XIAO_ZHI_WALK_ATLAS: 1015,
     ACTOR_ART_XIAO_ZHI_ILLUSTRATION: 1016,
 };
+Object.defineProperty(ResourceId, "__descriptor", {
+    value: {
+        name: "ResourceId",
+        get clrType() { return ResourceId; },
+        fullName: "pokeworld.resource.cfg.ResourceId",
+        package: "pokeworld.resource.cfg",
+        values: [
+            {name: "NONE", originalName: "ResourceId_NONE", number: 0},
+            {name: "UI_LOGIN_PANEL", originalName: "RESOURCEID_UI_LOGIN_PANEL", number: 1001},
+            {name: "UI_REGISTER_PANEL", originalName: "RESOURCEID_UI_REGISTER_PANEL", number: 1002},
+            {name: "UI_SERVER_PANEL", originalName: "RESOURCEID_UI_SERVER_PANEL", number: 1003},
+            {name: "UI_SERVER_ITEM", originalName: "RESOURCEID_UI_SERVER_ITEM", number: 1004},
+            {name: "UI_PLAYER_SELECT_PANEL", originalName: "RESOURCEID_UI_PLAYER_SELECT_PANEL", number: 1005},
+            {name: "UI_PLAYER_SELECT_ITEM", originalName: "RESOURCEID_UI_PLAYER_SELECT_ITEM", number: 1006},
+            {name: "UI_PLAYER_GAME_PANEL", originalName: "RESOURCEID_UI_PLAYER_GAME_PANEL", number: 1007},
+            {name: "UI_POKEDEX_PANEL", originalName: "RESOURCEID_UI_POKEDEX_PANEL", number: 1008},
+            {name: "UI_POKE_INFO_PANEL", originalName: "RESOURCEID_UI_POKE_INFO_PANEL", number: 1009},
+            {name: "UI_ART_POKE_TYPE_ATLAS", originalName: "RESOURCEID_UI_ART_POKE_TYPE_ATLAS", number: 1010},
+            {name: "UI_ART_POKE_TYPE_ICON_ATLAS", originalName: "RESOURCEID_UI_ART_POKE_TYPE_ICON_ATLAS", number: 1011},
+            {name: "SCENE_DEMO", originalName: "RESOURCEID_SCENE_DEMO", number: 1012},
+            {name: "SCENE_USER", originalName: "RESOURCEID_SCENE_USER", number: 1013},
+            {name: "ACTOR_XIAO_ZHI", originalName: "RESOURCEID_ACTOR_XIAO_ZHI", number: 1014},
+            {name: "ACTOR_ART_XIAO_ZHI_WALK_ATLAS", originalName: "RESOURCEID_ACTOR_ART_XIAO_ZHI_WALK_ATLAS", number: 1015},
+            {name: "ACTOR_ART_XIAO_ZHI_ILLUSTRATION", originalName: "RESOURCEID_ACTOR_ART_XIAO_ZHI_ILLUSTRATION", number: 1016}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(ResourceId);
 
 // Message: AssetAddress

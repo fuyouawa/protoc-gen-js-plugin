@@ -13,6 +13,23 @@ export const MessageId = {
     EXIT_RESPONSE: 1003,
     ENTITY_SYNC_NOTIFY: 1004,
 };
+Object.defineProperty(MessageId, "__descriptor", {
+    value: {
+        name: "MessageId",
+        get clrType() { return MessageId; },
+        fullName: "pokeworld.world.cs.MessageId",
+        package: "pokeworld.world.cs",
+        values: [
+            {name: "INVALID", originalName: "MESSAGE_ID_INVALID", number: 0},
+            {name: "MOVE_REQUEST", originalName: "MESSAGE_ID_MOVE_REQUEST", number: 1001},
+            {name: "EXIT_REQUEST", originalName: "MESSAGE_ID_EXIT_REQUEST", number: 1002},
+            {name: "EXIT_RESPONSE", originalName: "MESSAGE_ID_EXIT_RESPONSE", number: 1003},
+            {name: "ENTITY_SYNC_NOTIFY", originalName: "MESSAGE_ID_ENTITY_SYNC_NOTIFY", number: 1004}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(MessageId);
 
 // Message: MoveRequest

@@ -10,6 +10,20 @@ export const Type = {
     PLAYER: 0,
     POKEMON: 1,
 };
+Object.defineProperty(Type, "__descriptor", {
+    value: {
+        name: "Type",
+        get clrType() { return Type; },
+        fullName: "pokeworld.entity.comm.Type",
+        package: "pokeworld.entity.comm",
+        values: [
+            {name: "PLAYER", originalName: "TYPE_PLAYER", number: 0},
+            {name: "POKEMON", originalName: "TYPE_POKEMON", number: 1}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(Type);
 
 // Enum: Direction
@@ -19,6 +33,22 @@ export const Direction = {
     LEFT: 2,
     RIGHT: 3,
 };
+Object.defineProperty(Direction, "__descriptor", {
+    value: {
+        name: "Direction",
+        get clrType() { return Direction; },
+        fullName: "pokeworld.entity.comm.Direction",
+        package: "pokeworld.entity.comm",
+        values: [
+            {name: "UP", originalName: "DIRECTION_UP", number: 0},
+            {name: "DOWN", originalName: "DIRECTION_DOWN", number: 1},
+            {name: "LEFT", originalName: "DIRECTION_LEFT", number: 2},
+            {name: "RIGHT", originalName: "DIRECTION_RIGHT", number: 3}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(Direction);
 
 // Enum: MotionState
@@ -28,6 +58,22 @@ export const MotionState = {
     JUMP: 2,
     TELEPORT: 3,
 };
+Object.defineProperty(MotionState, "__descriptor", {
+    value: {
+        name: "MotionState",
+        get clrType() { return MotionState; },
+        fullName: "pokeworld.entity.comm.MotionState",
+        package: "pokeworld.entity.comm",
+        values: [
+            {name: "IDLE", originalName: "MOTION_STATE_IDLE", number: 0},
+            {name: "MOVEMENT", originalName: "MOTION_STATE_MOVEMENT", number: 1},
+            {name: "JUMP", originalName: "MOTION_STATE_JUMP", number: 2},
+            {name: "TELEPORT", originalName: "MOTION_STATE_TELEPORT", number: 3}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(MotionState);
 
 // Message: EntityInfo

@@ -9,6 +9,21 @@ export const Tab = {
     KNAPSACK: 1,
     QUICK_USE: 2,
 };
+Object.defineProperty(Tab, "__descriptor", {
+    value: {
+        name: "Tab",
+        get clrType() { return Tab; },
+        fullName: "pokeworld.inventory.comm.Tab",
+        package: "pokeworld.inventory.comm",
+        values: [
+            {name: "NONE", originalName: "NONE", number: 0},
+            {name: "KNAPSACK", originalName: "KNAPSACK", number: 1},
+            {name: "QUICK_USE", originalName: "QUICK_USE", number: 2}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(Tab);
 
 // Message: Slot

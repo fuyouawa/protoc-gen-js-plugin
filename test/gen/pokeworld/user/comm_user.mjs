@@ -9,5 +9,20 @@ export const Config = {
     PASSWORLD_MIN_LENGTH: 6,
     PASSWORLD_MAX_LENGTH: 20,
 };
+Object.defineProperty(Config, "__descriptor", {
+    value: {
+        name: "Config",
+        get clrType() { return Config; },
+        fullName: "pokeworld.user.comm.Config",
+        package: "pokeworld.user.comm",
+        values: [
+            {name: "INVALID", originalName: "CONFIG_INVALID", number: 0},
+            {name: "PASSWORLD_MIN_LENGTH", originalName: "CONFIG_PASSWORLD_MIN_LENGTH", number: 6},
+            {name: "PASSWORLD_MAX_LENGTH", originalName: "CONFIG_PASSWORLD_MAX_LENGTH", number: 20}
+        ]
+    },
+    enumerable: false,
+    writable: false,
+});
 Object.freeze(Config);
 
