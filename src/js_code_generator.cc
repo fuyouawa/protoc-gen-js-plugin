@@ -426,6 +426,15 @@ void JsCodeGenerator::GenerateMessage(
     output_ << "\n";
     output_ << indent << "    }\n\n";
 
+    // Generate constructor
+    // output_ << indent << "    constructor() {\n";
+    // for (const FieldDescriptorProto& field : message_type.field()) {
+    //     std::string camel_case_name = SnakeToCamelCase(field.name());
+    //     std::string default_value = TypeHelper::GetJsDefaultValue(field, proto_file_);
+    //     output_ << indent << "        this." << camel_case_name << " = " << default_value << ";\n";
+    // }
+    // output_ << indent << "    }\n\n";
+
     // Generate getter/setter methods for fields
     for (const FieldDescriptorProto& field : message_type.field()) {
         GenerateFieldMethods(field, indent + "    ", class_name);
@@ -507,6 +516,15 @@ std::string JsCodeGenerator::GenerateNestedMessageClass(
         output_ << "]";
     }
     output_ << "\n";
+    output_ << "    }\n\n";
+
+    // Generate constructor
+    output_ << "    constructor() {\n";
+    for (const FieldDescriptorProto& field : message_type.field()) {
+        std::string camel_case_name = SnakeToCamelCase(field.name());
+        std::string default_value = TypeHelper::GetJsDefaultValue(field, proto_file_);
+        output_ << "        this." << camel_case_name << " = " << default_value << ";\n";
+    }
     output_ << "    }\n\n";
 
     // Generate getter/setter methods for fields
@@ -616,20 +634,16 @@ void JsCodeGenerator::GenerateFieldMethods(
     // Field type mapping
     std::string js_type = TypeHelper::GetJsType(field, proto_file_);
 
-    // Getter method
-    output_ << indent << "/** \n";
-    output_ << indent << " * @return {" << js_type << "} \n";
-    output_ << indent << " */\n";
-    output_ << indent << "get" << TypeHelper::GetMethodName(field) << "() {\n";
-    output_ << indent << "    return this." << camel_case_name << ";\n";
-    output_ << indent << "}\n\n";
+    // Public field declaration
+    output_ << indent << "/** @type {" << js_type << "} */\n";
+    output_ << indent << camel_case_name << ";\n\n";
 
-    // Setter method (supports fluent chaining)
+    // withXxx method (supports fluent chaining)
     output_ << indent << "/** \n";
     output_ << indent << " * @param {" << js_type << "} value \n";
     output_ << indent << " * @return {" << class_name << "} \n";
     output_ << indent << " */\n";
-    output_ << indent << "set" << TypeHelper::GetMethodName(field) << "(value) {\n";
+    output_ << indent << "with" << TypeHelper::GetMethodName(field) << "(value) {\n";
     output_ << indent << "    this." << camel_case_name << " = value;\n";
     output_ << indent << "    return this;\n";
     output_ << indent << "}\n\n";

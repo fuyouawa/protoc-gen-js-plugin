@@ -153,114 +153,86 @@ export class Terrain {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {Terrain} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {Terrain} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getPriority() {
-        return this.priority;
-    }
+    /** @type {number} */
+    priority;
 
     /** 
      * @param {number} value 
      * @return {Terrain} 
      */
-    setPriority(value) {
+    withPriority(value) {
         this.priority = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainRuleType[keyof typeof TerrainRuleType][]} 
-     */
-    getExcludeRuleTypes() {
-        return this.excludeRuleTypes;
-    }
+    /** @type {TerrainRuleType[keyof typeof TerrainRuleType][]} */
+    excludeRuleTypes;
 
     /** 
      * @param {TerrainRuleType[keyof typeof TerrainRuleType][]} value 
      * @return {Terrain} 
      */
-    setExcludeRuleTypes(value) {
+    withExcludeRuleTypes(value) {
         this.excludeRuleTypes = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainTileRuleType[keyof typeof TerrainTileRuleType][]} 
-     */
-    getExcludeTileRuleTypes() {
-        return this.excludeTileRuleTypes;
-    }
+    /** @type {TerrainTileRuleType[keyof typeof TerrainTileRuleType][]} */
+    excludeTileRuleTypes;
 
     /** 
      * @param {TerrainTileRuleType[keyof typeof TerrainTileRuleType][]} value 
      * @return {Terrain} 
      */
-    setExcludeTileRuleTypes(value) {
+    withExcludeTileRuleTypes(value) {
         this.excludeTileRuleTypes = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainType[keyof typeof TerrainType]} 
-     */
-    getType() {
-        return this.type;
-    }
+    /** @type {TerrainType[keyof typeof TerrainType]} */
+    type;
 
     /** 
      * @param {TerrainType[keyof typeof TerrainType]} value 
      * @return {Terrain} 
      */
-    setType(value) {
+    withType(value) {
         this.type = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainFlags[keyof typeof TerrainFlags]} 
-     */
-    getFlags() {
-        return this.flags;
-    }
+    /** @type {TerrainFlags[keyof typeof TerrainFlags]} */
+    flags;
 
     /** 
      * @param {TerrainFlags[keyof typeof TerrainFlags]} value 
      * @return {Terrain} 
      */
-    setFlags(value) {
+    withFlags(value) {
         this.flags = value;
         return this;
     }
@@ -281,50 +253,38 @@ export class World {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {World} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {World} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldMathComm_math.Vector3Int} 
-     */
-    getSpawnPosition() {
-        return this.spawnPosition;
-    }
+    /** @type {__PokeworldMathComm_math.Vector3Int} */
+    spawnPosition;
 
     /** 
      * @param {__PokeworldMathComm_math.Vector3Int} value 
      * @return {World} 
      */
-    setSpawnPosition(value) {
+    withSpawnPosition(value) {
         this.spawnPosition = value;
         return this;
     }
@@ -343,18 +303,14 @@ export class TbWorld {
         ]
     }
 
-    /** 
-     * @return {World[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {World[]} */
+    dataList;
 
     /** 
      * @param {World[]} value 
      * @return {TbWorld} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }
@@ -373,18 +329,14 @@ export class TbTerrain {
         ]
     }
 
-    /** 
-     * @return {Terrain[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {Terrain[]} */
+    dataList;
 
     /** 
      * @param {Terrain[]} value 
      * @return {TbTerrain} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }

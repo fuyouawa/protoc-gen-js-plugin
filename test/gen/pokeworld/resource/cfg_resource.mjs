@@ -67,34 +67,26 @@ export class AssetAddress {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getPackageName() {
-        return this.packageName;
-    }
+    /** @type {string} */
+    packageName;
 
     /** 
      * @param {string} value 
      * @return {AssetAddress} 
      */
-    setPackageName(value) {
+    withPackageName(value) {
         this.packageName = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getLocation() {
-        return this.location;
-    }
+    /** @type {string} */
+    location;
 
     /** 
      * @param {string} value 
      * @return {AssetAddress} 
      */
-    setLocation(value) {
+    withLocation(value) {
         this.location = value;
         return this;
     }
@@ -114,34 +106,26 @@ export class Resource {
         ]
     }
 
-    /** 
-     * @return {ResourceId[keyof typeof ResourceId]} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {ResourceId[keyof typeof ResourceId]} */
+    id;
 
     /** 
      * @param {ResourceId[keyof typeof ResourceId]} value 
      * @return {Resource} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {AssetAddress} 
-     */
-    getAssetAddress() {
-        return this.assetAddress;
-    }
+    /** @type {AssetAddress} */
+    assetAddress;
 
     /** 
      * @param {AssetAddress} value 
      * @return {Resource} 
      */
-    setAssetAddress(value) {
+    withAssetAddress(value) {
         this.assetAddress = value;
         return this;
     }
@@ -160,18 +144,14 @@ export class TbResource {
         ]
     }
 
-    /** 
-     * @return {Resource[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {Resource[]} */
+    dataList;
 
     /** 
      * @param {Resource[]} value 
      * @return {TbResource} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }

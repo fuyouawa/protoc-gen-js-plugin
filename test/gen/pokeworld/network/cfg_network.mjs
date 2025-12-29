@@ -39,66 +39,50 @@ export class Server {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {Server} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {ServerType[keyof typeof ServerType]} 
-     */
-    getType() {
-        return this.type;
-    }
+    /** @type {ServerType[keyof typeof ServerType]} */
+    type;
 
     /** 
      * @param {ServerType[keyof typeof ServerType]} value 
      * @return {Server} 
      */
-    setType(value) {
+    withType(value) {
         this.type = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getHost() {
-        return this.host;
-    }
+    /** @type {string} */
+    host;
 
     /** 
      * @param {string} value 
      * @return {Server} 
      */
-    setHost(value) {
+    withHost(value) {
         this.host = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getPort() {
-        return this.port;
-    }
+    /** @type {number} */
+    port;
 
     /** 
      * @param {number} value 
      * @return {Server} 
      */
-    setPort(value) {
+    withPort(value) {
         this.port = value;
         return this;
     }
@@ -117,18 +101,14 @@ export class TbServer {
         ]
     }
 
-    /** 
-     * @return {Server[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {Server[]} */
+    dataList;
 
     /** 
      * @param {Server[]} value 
      * @return {TbServer} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }

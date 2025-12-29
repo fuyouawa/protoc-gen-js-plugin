@@ -183,4 +183,51 @@ std::string TypeHelper::GetMethodName(
     return SnakeToPascalCase(field.name());
 }
 
+std::string TypeHelper::GetJsDefaultValue(
+    const FieldDescriptorProto& field,
+    const FileDescriptorProto& proto_file) {
+
+    // Handle repeated fields (arrays)
+    if (field.label() == FieldDescriptorProto::LABEL_REPEATED) {
+        return "[]";
+    }
+
+    // Handle different types
+    switch (field.type()) {
+        case FieldDescriptorProto::TYPE_DOUBLE:
+        case FieldDescriptorProto::TYPE_FLOAT:
+        case FieldDescriptorProto::TYPE_INT64:
+        case FieldDescriptorProto::TYPE_UINT64:
+        case FieldDescriptorProto::TYPE_INT32:
+        case FieldDescriptorProto::TYPE_FIXED64:
+        case FieldDescriptorProto::TYPE_FIXED32:
+        case FieldDescriptorProto::TYPE_UINT32:
+        case FieldDescriptorProto::TYPE_SFIXED32:
+        case FieldDescriptorProto::TYPE_SFIXED64:
+        case FieldDescriptorProto::TYPE_SINT32:
+        case FieldDescriptorProto::TYPE_SINT64:
+            return "0";
+
+        case FieldDescriptorProto::TYPE_BOOL:
+            return "false";
+
+        case FieldDescriptorProto::TYPE_STRING:
+            return "\"\"";
+
+        case FieldDescriptorProto::TYPE_BYTES:
+            return "new Uint8Array(0)";
+
+        case FieldDescriptorProto::TYPE_ENUM:
+            return "0";
+
+        case FieldDescriptorProto::TYPE_MESSAGE:
+            // For message types, we can't easily instantiate them inline
+            // Using null and letting the withXxx method handle it
+            return "null";
+
+        default:
+            return "null";
+    }
+}
+
 }  // namespace protoc_js_gen_plugin

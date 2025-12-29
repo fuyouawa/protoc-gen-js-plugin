@@ -16,34 +16,26 @@ export class FieldOptionsTableLoader {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getTableName() {
-        return this.tableName;
-    }
+    /** @type {string} */
+    tableName;
 
     /** 
      * @param {string} value 
      * @return {FieldOptionsTableLoader} 
      */
-    setTableName(value) {
+    withTableName(value) {
         this.tableName = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getDataFileName() {
-        return this.dataFileName;
-    }
+    /** @type {string} */
+    dataFileName;
 
     /** 
      * @param {string} value 
      * @return {FieldOptionsTableLoader} 
      */
-    setDataFileName(value) {
+    withDataFileName(value) {
         this.dataFileName = value;
         return this;
     }

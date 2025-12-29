@@ -15,18 +15,14 @@ export class Player {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getUnitId() {
-        return this.unitId;
-    }
+    /** @type {number} */
+    unitId;
 
     /** 
      * @param {number} value 
      * @return {Player} 
      */
-    setUnitId(value) {
+    withUnitId(value) {
         this.unitId = value;
         return this;
     }

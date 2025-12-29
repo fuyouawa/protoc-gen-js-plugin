@@ -41,52 +41,40 @@ export class TerrainDefinitionNode {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {TerrainDefinitionNode} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
     // Oneof field (index: 0)
-    /** 
-     * @return {TerrainDefinitionGroup} 
-     */
-    getGroup() {
-        return this.group;
-    }
+    /** @type {TerrainDefinitionGroup} */
+    group;
 
     /** 
      * @param {TerrainDefinitionGroup} value 
      * @return {TerrainDefinitionNode} 
      */
-    setGroup(value) {
+    withGroup(value) {
         this.group = value;
         return this;
     }
 
     // Oneof field (index: 0)
-    /** 
-     * @return {TerrainDefinition} 
-     */
-    getDefinition() {
-        return this.definition;
-    }
+    /** @type {TerrainDefinition} */
+    definition;
 
     /** 
      * @param {TerrainDefinition} value 
      * @return {TerrainDefinitionNode} 
      */
-    setDefinition(value) {
+    withDefinition(value) {
         this.definition = value;
         return this;
     }
@@ -106,34 +94,26 @@ export class TerrainDefinitionGroup {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {TerrainDefinitionGroup} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainDefinitionNode[]} 
-     */
-    getNodes() {
-        return this.nodes;
-    }
+    /** @type {TerrainDefinitionNode[]} */
+    nodes;
 
     /** 
      * @param {TerrainDefinitionNode[]} value 
      * @return {TerrainDefinitionGroup} 
      */
-    setNodes(value) {
+    withNodes(value) {
         this.nodes = value;
         return this;
     }
@@ -153,34 +133,26 @@ export class TerrainDefinition {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {TerrainDefinition} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainType[keyof typeof TerrainType]} 
-     */
-    getType() {
-        return this.type;
-    }
+    /** @type {TerrainType[keyof typeof TerrainType]} */
+    type;
 
     /** 
      * @param {TerrainType[keyof typeof TerrainType]} value 
      * @return {TerrainDefinition} 
      */
-    setType(value) {
+    withType(value) {
         this.type = value;
         return this;
     }
@@ -198,34 +170,31 @@ class __TerrainSection_Tile {
         ]
     }
 
-    /** 
-     * @return {__PokeworldMathComm_math.Vector3Int} 
-     */
-    getCoordinate() {
-        return this.coordinate;
+    constructor() {
+        this.coordinate = null;
+        this.ruleType = 0;
     }
+
+    /** @type {__PokeworldMathComm_math.Vector3Int} */
+    coordinate;
 
     /** 
      * @param {__PokeworldMathComm_math.Vector3Int} value 
      * @return {__TerrainSection_Tile} 
      */
-    setCoordinate(value) {
+    withCoordinate(value) {
         this.coordinate = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldWorldCfg_world.TerrainTileRuleType} 
-     */
-    getRuleType() {
-        return this.ruleType;
-    }
+    /** @type {__PokeworldWorldCfg_world.TerrainTileRuleType} */
+    ruleType;
 
     /** 
      * @param {__PokeworldWorldCfg_world.TerrainTileRuleType} value 
      * @return {__TerrainSection_Tile} 
      */
-    setRuleType(value) {
+    withRuleType(value) {
         this.ruleType = value;
         return this;
     }
@@ -245,34 +214,26 @@ export class TerrainSection {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getTerrainName() {
-        return this.terrainName;
-    }
+    /** @type {string} */
+    terrainName;
 
     /** 
      * @param {string} value 
      * @return {TerrainSection} 
      */
-    setTerrainName(value) {
+    withTerrainName(value) {
         this.terrainName = value;
         return this;
     }
 
-    /** 
-     * @return {__TerrainSection_Tile[]} 
-     */
-    getTiles() {
-        return this.tiles;
-    }
+    /** @type {__TerrainSection_Tile[]} */
+    tiles;
 
     /** 
      * @param {__TerrainSection_Tile[]} value 
      * @return {TerrainSection} 
      */
-    setTiles(value) {
+    withTiles(value) {
         this.tiles = value;
         return this;
     }
@@ -291,34 +252,31 @@ class __WorldData_TerrainSectionByNameEntry {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getKey() {
-        return this.key;
+    constructor() {
+        this.key = "";
+        this.value = null;
     }
+
+    /** @type {string} */
+    key;
 
     /** 
      * @param {string} value 
      * @return {__WorldData_TerrainSectionByNameEntry} 
      */
-    setKey(value) {
+    withKey(value) {
         this.key = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainSection} 
-     */
-    getValue() {
-        return this.value;
-    }
+    /** @type {TerrainSection} */
+    value;
 
     /** 
      * @param {TerrainSection} value 
      * @return {__WorldData_TerrainSectionByNameEntry} 
      */
-    setValue(value) {
+    withValue(value) {
         this.value = value;
         return this;
     }
@@ -341,82 +299,62 @@ export class WorldData {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getTileSize() {
-        return this.tileSize;
-    }
+    /** @type {number} */
+    tileSize;
 
     /** 
      * @param {number} value 
      * @return {WorldData} 
      */
-    setTileSize(value) {
+    withTileSize(value) {
         this.tileSize = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldMathComm_math.Vector3} 
-     */
-    getStartPosition() {
-        return this.startPosition;
-    }
+    /** @type {__PokeworldMathComm_math.Vector3} */
+    startPosition;
 
     /** 
      * @param {__PokeworldMathComm_math.Vector3} value 
      * @return {WorldData} 
      */
-    setStartPosition(value) {
+    withStartPosition(value) {
         this.startPosition = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldMathComm_math.Vector2Int} 
-     */
-    getBaseRange() {
-        return this.baseRange;
-    }
+    /** @type {__PokeworldMathComm_math.Vector2Int} */
+    baseRange;
 
     /** 
      * @param {__PokeworldMathComm_math.Vector2Int} value 
      * @return {WorldData} 
      */
-    setBaseRange(value) {
+    withBaseRange(value) {
         this.baseRange = value;
         return this;
     }
 
-    /** 
-     * @return {TerrainDefinitionNode[]} 
-     */
-    getTerrainDefinitionNodes() {
-        return this.terrainDefinitionNodes;
-    }
+    /** @type {TerrainDefinitionNode[]} */
+    terrainDefinitionNodes;
 
     /** 
      * @param {TerrainDefinitionNode[]} value 
      * @return {WorldData} 
      */
-    setTerrainDefinitionNodes(value) {
+    withTerrainDefinitionNodes(value) {
         this.terrainDefinitionNodes = value;
         return this;
     }
 
-    /** 
-     * @return {any} 
-     */
-    getTerrainSectionByName() {
-        return this.terrainSectionByName;
-    }
+    /** @type {any} */
+    terrainSectionByName;
 
     /** 
      * @param {any} value 
      * @return {WorldData} 
      */
-    setTerrainSectionByName(value) {
+    withTerrainSectionByName(value) {
         this.terrainSectionByName = value;
         return this;
     }
@@ -436,18 +374,14 @@ export class TbWorldData {
         ]
     }
 
-    /** 
-     * @return {WorldData[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {WorldData[]} */
+    dataList;
 
     /** 
      * @param {WorldData[]} value 
      * @return {TbWorldData} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }

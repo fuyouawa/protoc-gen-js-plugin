@@ -18,66 +18,50 @@ export class Rect {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getX() {
-        return this.x;
-    }
+    /** @type {number} */
+    x;
 
     /** 
      * @param {number} value 
      * @return {Rect} 
      */
-    setX(value) {
+    withX(value) {
         this.x = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getY() {
-        return this.y;
-    }
+    /** @type {number} */
+    y;
 
     /** 
      * @param {number} value 
      * @return {Rect} 
      */
-    setY(value) {
+    withY(value) {
         this.y = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getWidth() {
-        return this.width;
-    }
+    /** @type {number} */
+    width;
 
     /** 
      * @param {number} value 
      * @return {Rect} 
      */
-    setWidth(value) {
+    withWidth(value) {
         this.width = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getHeight() {
-        return this.height;
-    }
+    /** @type {number} */
+    height;
 
     /** 
      * @param {number} value 
      * @return {Rect} 
      */
-    setHeight(value) {
+    withHeight(value) {
         this.height = value;
         return this;
     }
@@ -99,66 +83,50 @@ export class RectInt {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getX() {
-        return this.x;
-    }
+    /** @type {number} */
+    x;
 
     /** 
      * @param {number} value 
      * @return {RectInt} 
      */
-    setX(value) {
+    withX(value) {
         this.x = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getY() {
-        return this.y;
-    }
+    /** @type {number} */
+    y;
 
     /** 
      * @param {number} value 
      * @return {RectInt} 
      */
-    setY(value) {
+    withY(value) {
         this.y = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getWidth() {
-        return this.width;
-    }
+    /** @type {number} */
+    width;
 
     /** 
      * @param {number} value 
      * @return {RectInt} 
      */
-    setWidth(value) {
+    withWidth(value) {
         this.width = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getHeight() {
-        return this.height;
-    }
+    /** @type {number} */
+    height;
 
     /** 
      * @param {number} value 
      * @return {RectInt} 
      */
-    setHeight(value) {
+    withHeight(value) {
         this.height = value;
         return this;
     }
@@ -178,34 +146,26 @@ export class Vector2 {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getX() {
-        return this.x;
-    }
+    /** @type {number} */
+    x;
 
     /** 
      * @param {number} value 
      * @return {Vector2} 
      */
-    setX(value) {
+    withX(value) {
         this.x = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getY() {
-        return this.y;
-    }
+    /** @type {number} */
+    y;
 
     /** 
      * @param {number} value 
      * @return {Vector2} 
      */
-    setY(value) {
+    withY(value) {
         this.y = value;
         return this;
     }
@@ -225,34 +185,26 @@ export class Vector2Int {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getX() {
-        return this.x;
-    }
+    /** @type {number} */
+    x;
 
     /** 
      * @param {number} value 
      * @return {Vector2Int} 
      */
-    setX(value) {
+    withX(value) {
         this.x = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getY() {
-        return this.y;
-    }
+    /** @type {number} */
+    y;
 
     /** 
      * @param {number} value 
      * @return {Vector2Int} 
      */
-    setY(value) {
+    withY(value) {
         this.y = value;
         return this;
     }
@@ -273,50 +225,38 @@ export class Vector3 {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getX() {
-        return this.x;
-    }
+    /** @type {number} */
+    x;
 
     /** 
      * @param {number} value 
      * @return {Vector3} 
      */
-    setX(value) {
+    withX(value) {
         this.x = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getY() {
-        return this.y;
-    }
+    /** @type {number} */
+    y;
 
     /** 
      * @param {number} value 
      * @return {Vector3} 
      */
-    setY(value) {
+    withY(value) {
         this.y = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getZ() {
-        return this.z;
-    }
+    /** @type {number} */
+    z;
 
     /** 
      * @param {number} value 
      * @return {Vector3} 
      */
-    setZ(value) {
+    withZ(value) {
         this.z = value;
         return this;
     }
@@ -337,50 +277,38 @@ export class Vector3Int {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getX() {
-        return this.x;
-    }
+    /** @type {number} */
+    x;
 
     /** 
      * @param {number} value 
      * @return {Vector3Int} 
      */
-    setX(value) {
+    withX(value) {
         this.x = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getY() {
-        return this.y;
-    }
+    /** @type {number} */
+    y;
 
     /** 
      * @param {number} value 
      * @return {Vector3Int} 
      */
-    setY(value) {
+    withY(value) {
         this.y = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getZ() {
-        return this.z;
-    }
+    /** @type {number} */
+    z;
 
     /** 
      * @param {number} value 
      * @return {Vector3Int} 
      */
-    setZ(value) {
+    withZ(value) {
         this.z = value;
         return this;
     }

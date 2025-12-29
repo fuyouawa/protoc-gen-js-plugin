@@ -44,18 +44,14 @@ export class JoinGameRequest {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getEntityId() {
-        return this.entityId;
-    }
+    /** @type {number} */
+    entityId;
 
     /** 
      * @param {number} value 
      * @return {JoinGameRequest} 
      */
-    setEntityId(value) {
+    withEntityId(value) {
         this.entityId = value;
         return this;
     }
@@ -74,18 +70,14 @@ export class JoinGameResponse {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
-    }
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {JoinGameResponse} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
@@ -104,18 +96,14 @@ export class GetPlayersRequest {
         ]
     }
 
-    /** 
-     * @return {number[]} 
-     */
-    getEntityIds() {
-        return this.entityIds;
-    }
+    /** @type {number[]} */
+    entityIds;
 
     /** 
      * @param {number[]} value 
      * @return {GetPlayersRequest} 
      */
-    setEntityIds(value) {
+    withEntityIds(value) {
         this.entityIds = value;
         return this;
     }
@@ -139,98 +127,74 @@ export class Player {
         ]
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.EntityInfo} 
-     */
-    getEntityInfo() {
-        return this.entityInfo;
-    }
+    /** @type {__PokeworldEntityComm_entity.EntityInfo} */
+    entityInfo;
 
     /** 
      * @param {__PokeworldEntityComm_entity.EntityInfo} value 
      * @return {Player} 
      */
-    setEntityInfo(value) {
+    withEntityInfo(value) {
         this.entityInfo = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.ActorInfo} 
-     */
-    getActorInfo() {
-        return this.actorInfo;
-    }
+    /** @type {__PokeworldEntityComm_entity.ActorInfo} */
+    actorInfo;
 
     /** 
      * @param {__PokeworldEntityComm_entity.ActorInfo} value 
      * @return {Player} 
      */
-    setActorInfo(value) {
+    withActorInfo(value) {
         this.actorInfo = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.PlayerInfo} 
-     */
-    getPlayerInfo() {
-        return this.playerInfo;
-    }
+    /** @type {__PokeworldEntityComm_entity.PlayerInfo} */
+    playerInfo;
 
     /** 
      * @param {__PokeworldEntityComm_entity.PlayerInfo} value 
      * @return {Player} 
      */
-    setPlayerInfo(value) {
+    withPlayerInfo(value) {
         this.playerInfo = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.EntityTransform} 
-     */
-    getEntityTransform() {
-        return this.entityTransform;
-    }
+    /** @type {__PokeworldEntityComm_entity.EntityTransform} */
+    entityTransform;
 
     /** 
      * @param {__PokeworldEntityComm_entity.EntityTransform} value 
      * @return {Player} 
      */
-    setEntityTransform(value) {
+    withEntityTransform(value) {
         this.entityTransform = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.ActorTransform} 
-     */
-    getActorTransform() {
-        return this.actorTransform;
-    }
+    /** @type {__PokeworldEntityComm_entity.ActorTransform} */
+    actorTransform;
 
     /** 
      * @param {__PokeworldEntityComm_entity.ActorTransform} value 
      * @return {Player} 
      */
-    setActorTransform(value) {
+    withActorTransform(value) {
         this.actorTransform = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.ActorState} 
-     */
-    getActorState() {
-        return this.actorState;
-    }
+    /** @type {__PokeworldEntityComm_entity.ActorState} */
+    actorState;
 
     /** 
      * @param {__PokeworldEntityComm_entity.ActorState} value 
      * @return {Player} 
      */
-    setActorState(value) {
+    withActorState(value) {
         this.actorState = value;
         return this;
     }
@@ -249,50 +213,44 @@ class __GetPlayersResponse_Result {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
+    constructor() {
+        this.success = false;
+        this.entityId = 0;
+        this.player = null;
     }
+
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {__GetPlayersResponse_Result} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getEntityId() {
-        return this.entityId;
-    }
+    /** @type {number} */
+    entityId;
 
     /** 
      * @param {number} value 
      * @return {__GetPlayersResponse_Result} 
      */
-    setEntityId(value) {
+    withEntityId(value) {
         this.entityId = value;
         return this;
     }
 
-    /** 
-     * @return {Player} 
-     */
-    getPlayer() {
-        return this.player;
-    }
+    /** @type {Player} */
+    player;
 
     /** 
      * @param {Player} value 
      * @return {__GetPlayersResponse_Result} 
      */
-    setPlayer(value) {
+    withPlayer(value) {
         this.player = value;
         return this;
     }
@@ -311,18 +269,14 @@ export class GetPlayersResponse {
         ]
     }
 
-    /** 
-     * @return {__GetPlayersResponse_Result[]} 
-     */
-    getResults() {
-        return this.results;
-    }
+    /** @type {__GetPlayersResponse_Result[]} */
+    results;
 
     /** 
      * @param {__GetPlayersResponse_Result[]} value 
      * @return {GetPlayersResponse} 
      */
-    setResults(value) {
+    withResults(value) {
         this.results = value;
         return this;
     }

@@ -39,34 +39,26 @@ export class Slot {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getItemId() {
-        return this.itemId;
-    }
+    /** @type {number} */
+    itemId;
 
     /** 
      * @param {number} value 
      * @return {Slot} 
      */
-    setItemId(value) {
+    withItemId(value) {
         this.itemId = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getItemNum() {
-        return this.itemNum;
-    }
+    /** @type {number} */
+    itemNum;
 
     /** 
      * @param {number} value 
      * @return {Slot} 
      */
-    setItemNum(value) {
+    withItemNum(value) {
         this.itemNum = value;
         return this;
     }
@@ -84,34 +76,31 @@ class __Inventory_SlotMapEntry {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getKey() {
-        return this.key;
+    constructor() {
+        this.key = 0;
+        this.value = null;
     }
+
+    /** @type {number} */
+    key;
 
     /** 
      * @param {number} value 
      * @return {__Inventory_SlotMapEntry} 
      */
-    setKey(value) {
+    withKey(value) {
         this.key = value;
         return this;
     }
 
-    /** 
-     * @return {Slot} 
-     */
-    getValue() {
-        return this.value;
-    }
+    /** @type {Slot} */
+    value;
 
     /** 
      * @param {Slot} value 
      * @return {__Inventory_SlotMapEntry} 
      */
-    setValue(value) {
+    withValue(value) {
         this.value = value;
         return this;
     }
@@ -132,50 +121,38 @@ export class Inventory {
         ]
     }
 
-    /** 
-     * @return {Tab[keyof typeof Tab]} 
-     */
-    getTab() {
-        return this.tab;
-    }
+    /** @type {Tab[keyof typeof Tab]} */
+    tab;
 
     /** 
      * @param {Tab[keyof typeof Tab]} value 
      * @return {Inventory} 
      */
-    setTab(value) {
+    withTab(value) {
         this.tab = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getMaxSlot() {
-        return this.maxSlot;
-    }
+    /** @type {number} */
+    maxSlot;
 
     /** 
      * @param {number} value 
      * @return {Inventory} 
      */
-    setMaxSlot(value) {
+    withMaxSlot(value) {
         this.maxSlot = value;
         return this;
     }
 
-    /** 
-     * @return {any} 
-     */
-    getSlotMap() {
-        return this.slotMap;
-    }
+    /** @type {any} */
+    slotMap;
 
     /** 
      * @param {any} value 
      * @return {Inventory} 
      */
-    setSlotMap(value) {
+    withSlotMap(value) {
         this.slotMap = value;
         return this;
     }
@@ -195,18 +172,14 @@ export class Inventories {
         ]
     }
 
-    /** 
-     * @return {Inventory[]} 
-     */
-    getList() {
-        return this.list;
-    }
+    /** @type {Inventory[]} */
+    list;
 
     /** 
      * @param {Inventory[]} value 
      * @return {Inventories} 
      */
-    setList(value) {
+    withList(value) {
         this.list = value;
         return this;
     }

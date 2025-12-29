@@ -18,18 +18,14 @@ export class Entity {
     }
 
     // Oneof field (index: 0)
-    /** 
-     * @return {__PokeworldActorCfg_actor.Player} 
-     */
-    getPlayer() {
-        return this.Player;
-    }
+    /** @type {__PokeworldActorCfg_actor.Player} */
+    Player;
 
     /** 
      * @param {__PokeworldActorCfg_actor.Player} value 
      * @return {Entity} 
      */
-    setPlayer(value) {
+    withPlayer(value) {
         this.Player = value;
         return this;
     }

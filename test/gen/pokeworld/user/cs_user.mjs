@@ -56,50 +56,38 @@ export class RegisterRequest {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getEmail() {
-        return this.email;
-    }
+    /** @type {string} */
+    email;
 
     /** 
      * @param {string} value 
      * @return {RegisterRequest} 
      */
-    setEmail(value) {
+    withEmail(value) {
         this.email = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getUserName() {
-        return this.userName;
-    }
+    /** @type {string} */
+    userName;
 
     /** 
      * @param {string} value 
      * @return {RegisterRequest} 
      */
-    setUserName(value) {
+    withUserName(value) {
         this.userName = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getPassword() {
-        return this.password;
-    }
+    /** @type {string} */
+    password;
 
     /** 
      * @param {string} value 
      * @return {RegisterRequest} 
      */
-    setPassword(value) {
+    withPassword(value) {
         this.password = value;
         return this;
     }
@@ -118,18 +106,14 @@ export class RegisterResponse {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
-    }
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {RegisterResponse} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
@@ -149,34 +133,26 @@ export class LoginRequest {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getEmail() {
-        return this.email;
-    }
+    /** @type {string} */
+    email;
 
     /** 
      * @param {string} value 
      * @return {LoginRequest} 
      */
-    setEmail(value) {
+    withEmail(value) {
         this.email = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getPassword() {
-        return this.password;
-    }
+    /** @type {string} */
+    password;
 
     /** 
      * @param {string} value 
      * @return {LoginRequest} 
      */
-    setPassword(value) {
+    withPassword(value) {
         this.password = value;
         return this;
     }
@@ -195,18 +171,14 @@ export class LoginResponse {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
-    }
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {LoginResponse} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
@@ -225,18 +197,14 @@ export class EnterServerRequest {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getServerId() {
-        return this.serverId;
-    }
+    /** @type {number} */
+    serverId;
 
     /** 
      * @param {number} value 
      * @return {EnterServerRequest} 
      */
-    setServerId(value) {
+    withServerId(value) {
         this.serverId = value;
         return this;
     }
@@ -255,18 +223,14 @@ export class EnterServerResponse {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
-    }
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {EnterServerResponse} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
@@ -299,50 +263,38 @@ export class Server {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {Server} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {Server} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getNumber() {
-        return this.number;
-    }
+    /** @type {number} */
+    number;
 
     /** 
      * @param {number} value 
      * @return {Server} 
      */
-    setNumber(value) {
+    withNumber(value) {
         this.number = value;
         return this;
     }
@@ -362,34 +314,26 @@ export class GetServersResponse {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
-    }
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {GetServersResponse} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
 
-    /** 
-     * @return {Server[]} 
-     */
-    getServers() {
-        return this.servers;
-    }
+    /** @type {Server[]} */
+    servers;
 
     /** 
      * @param {Server[]} value 
      * @return {GetServersResponse} 
      */
-    setServers(value) {
+    withServers(value) {
         this.servers = value;
         return this;
     }
@@ -421,34 +365,26 @@ export class GetCreatedPlayersResponse {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
-    }
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {GetCreatedPlayersResponse} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
 
-    /** 
-     * @return {number[]} 
-     */
-    getEntityIds() {
-        return this.entityIds;
-    }
+    /** @type {number[]} */
+    entityIds;
 
     /** 
      * @param {number[]} value 
      * @return {GetCreatedPlayersResponse} 
      */
-    setEntityIds(value) {
+    withEntityIds(value) {
         this.entityIds = value;
         return this;
     }

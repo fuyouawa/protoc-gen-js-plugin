@@ -42,18 +42,14 @@ export class PullRequest {
         ]
     }
 
-    /** 
-     * @return {__PokeworldInventoryComm_inventory.Tab} 
-     */
-    getTab() {
-        return this.tab;
-    }
+    /** @type {__PokeworldInventoryComm_inventory.Tab} */
+    tab;
 
     /** 
      * @param {__PokeworldInventoryComm_inventory.Tab} value 
      * @return {PullRequest} 
      */
-    setTab(value) {
+    withTab(value) {
         this.tab = value;
         return this;
     }
@@ -72,18 +68,14 @@ export class SyncNotify {
         ]
     }
 
-    /** 
-     * @return {__PokeworldInventoryComm_inventory.Inventory} 
-     */
-    getInventory() {
-        return this.inventory;
-    }
+    /** @type {__PokeworldInventoryComm_inventory.Inventory} */
+    inventory;
 
     /** 
      * @param {__PokeworldInventoryComm_inventory.Inventory} value 
      * @return {SyncNotify} 
      */
-    setInventory(value) {
+    withInventory(value) {
         this.inventory = value;
         return this;
     }
@@ -103,34 +95,26 @@ export class SwapSlotRequest {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getSrcSlotId() {
-        return this.srcSlotId;
-    }
+    /** @type {number} */
+    srcSlotId;
 
     /** 
      * @param {number} value 
      * @return {SwapSlotRequest} 
      */
-    setSrcSlotId(value) {
+    withSrcSlotId(value) {
         this.srcSlotId = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getDestSlotId() {
-        return this.destSlotId;
-    }
+    /** @type {number} */
+    destSlotId;
 
     /** 
      * @param {number} value 
      * @return {SwapSlotRequest} 
      */
-    setDestSlotId(value) {
+    withDestSlotId(value) {
         this.destSlotId = value;
         return this;
     }

@@ -45,34 +45,26 @@ export class MoveRequest {
         ]
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.Direction} 
-     */
-    getMovement() {
-        return this.movement;
-    }
+    /** @type {__PokeworldEntityComm_entity.Direction} */
+    movement;
 
     /** 
      * @param {__PokeworldEntityComm_entity.Direction} value 
      * @return {MoveRequest} 
      */
-    setMovement(value) {
+    withMovement(value) {
         this.movement = value;
         return this;
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getRun() {
-        return this.run;
-    }
+    /** @type {boolean} */
+    run;
 
     /** 
      * @param {boolean} value 
      * @return {MoveRequest} 
      */
-    setRun(value) {
+    withRun(value) {
         this.run = value;
         return this;
     }
@@ -103,18 +95,14 @@ export class ExitResponse {
         ]
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getSuccess() {
-        return this.success;
-    }
+    /** @type {boolean} */
+    success;
 
     /** 
      * @param {boolean} value 
      * @return {ExitResponse} 
      */
-    setSuccess(value) {
+    withSuccess(value) {
         this.success = value;
         return this;
     }
@@ -136,66 +124,50 @@ export class PlayerSync {
         ]
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.EntityInfo} 
-     */
-    getEntityInfo() {
-        return this.entityInfo;
-    }
+    /** @type {__PokeworldEntityComm_entity.EntityInfo} */
+    entityInfo;
 
     /** 
      * @param {__PokeworldEntityComm_entity.EntityInfo} value 
      * @return {PlayerSync} 
      */
-    setEntityInfo(value) {
+    withEntityInfo(value) {
         this.entityInfo = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.EntityTransform} 
-     */
-    getEntityTransform() {
-        return this.entityTransform;
-    }
+    /** @type {__PokeworldEntityComm_entity.EntityTransform} */
+    entityTransform;
 
     /** 
      * @param {__PokeworldEntityComm_entity.EntityTransform} value 
      * @return {PlayerSync} 
      */
-    setEntityTransform(value) {
+    withEntityTransform(value) {
         this.entityTransform = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.ActorTransform} 
-     */
-    getActorTransform() {
-        return this.actorTransform;
-    }
+    /** @type {__PokeworldEntityComm_entity.ActorTransform} */
+    actorTransform;
 
     /** 
      * @param {__PokeworldEntityComm_entity.ActorTransform} value 
      * @return {PlayerSync} 
      */
-    setActorTransform(value) {
+    withActorTransform(value) {
         this.actorTransform = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.ActorState} 
-     */
-    getActorState() {
-        return this.actorState;
-    }
+    /** @type {__PokeworldEntityComm_entity.ActorState} */
+    actorState;
 
     /** 
      * @param {__PokeworldEntityComm_entity.ActorState} value 
      * @return {PlayerSync} 
      */
-    setActorState(value) {
+    withActorState(value) {
         this.actorState = value;
         return this;
     }
@@ -217,66 +189,50 @@ export class NpcSync {
         ]
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.EntityInfo} 
-     */
-    getEntityInfo() {
-        return this.entityInfo;
-    }
+    /** @type {__PokeworldEntityComm_entity.EntityInfo} */
+    entityInfo;
 
     /** 
      * @param {__PokeworldEntityComm_entity.EntityInfo} value 
      * @return {NpcSync} 
      */
-    setEntityInfo(value) {
+    withEntityInfo(value) {
         this.entityInfo = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.EntityTransform} 
-     */
-    getEntityTransform() {
-        return this.entityTransform;
-    }
+    /** @type {__PokeworldEntityComm_entity.EntityTransform} */
+    entityTransform;
 
     /** 
      * @param {__PokeworldEntityComm_entity.EntityTransform} value 
      * @return {NpcSync} 
      */
-    setEntityTransform(value) {
+    withEntityTransform(value) {
         this.entityTransform = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.ActorTransform} 
-     */
-    getActorTransform() {
-        return this.actorTransform;
-    }
+    /** @type {__PokeworldEntityComm_entity.ActorTransform} */
+    actorTransform;
 
     /** 
      * @param {__PokeworldEntityComm_entity.ActorTransform} value 
      * @return {NpcSync} 
      */
-    setActorTransform(value) {
+    withActorTransform(value) {
         this.actorTransform = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldEntityComm_entity.ActorState} 
-     */
-    getActorState() {
-        return this.actorState;
-    }
+    /** @type {__PokeworldEntityComm_entity.ActorState} */
+    actorState;
 
     /** 
      * @param {__PokeworldEntityComm_entity.ActorState} value 
      * @return {NpcSync} 
      */
-    setActorState(value) {
+    withActorState(value) {
         this.actorState = value;
         return this;
     }
@@ -297,35 +253,27 @@ export class EntitySync {
     }
 
     // Oneof field (index: 0)
-    /** 
-     * @return {PlayerSync} 
-     */
-    getPlayer() {
-        return this.player;
-    }
+    /** @type {PlayerSync} */
+    player;
 
     /** 
      * @param {PlayerSync} value 
      * @return {EntitySync} 
      */
-    setPlayer(value) {
+    withPlayer(value) {
         this.player = value;
         return this;
     }
 
     // Oneof field (index: 0)
-    /** 
-     * @return {NpcSync} 
-     */
-    getNpc() {
-        return this.npc;
-    }
+    /** @type {NpcSync} */
+    npc;
 
     /** 
      * @param {NpcSync} value 
      * @return {EntitySync} 
      */
-    setNpc(value) {
+    withNpc(value) {
         this.npc = value;
         return this;
     }
@@ -344,18 +292,14 @@ export class EntitySyncNotify {
         ]
     }
 
-    /** 
-     * @return {EntitySync[]} 
-     */
-    getSyncs() {
-        return this.syncs;
-    }
+    /** @type {EntitySync[]} */
+    syncs;
 
     /** 
      * @param {EntitySync[]} value 
      * @return {EntitySyncNotify} 
      */
-    setSyncs(value) {
+    withSyncs(value) {
         this.syncs = value;
         return this;
     }

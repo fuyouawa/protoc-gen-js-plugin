@@ -115,338 +115,254 @@ export class Move {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getNum() {
-        return this.num;
-    }
+    /** @type {number} */
+    num;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setNum(value) {
+    withNum(value) {
         this.num = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getGen() {
-        return this.gen;
-    }
+    /** @type {number} */
+    gen;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setGen(value) {
+    withGen(value) {
         this.gen = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getBasePower() {
-        return this.basePower;
-    }
+    /** @type {number} */
+    basePower;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setBasePower(value) {
+    withBasePower(value) {
         this.basePower = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getPp() {
-        return this.pp;
-    }
+    /** @type {number} */
+    pp;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setPp(value) {
+    withPp(value) {
         this.pp = value;
         return this;
     }
 
-    /** 
-     * @return {PokeType[keyof typeof PokeType]} 
-     */
-    getType() {
-        return this.type;
-    }
+    /** @type {PokeType[keyof typeof PokeType]} */
+    type;
 
     /** 
      * @param {PokeType[keyof typeof PokeType]} value 
      * @return {Move} 
      */
-    setType(value) {
+    withType(value) {
         this.type = value;
         return this;
     }
 
-    /** 
-     * @return {MoveCategory[keyof typeof MoveCategory]} 
-     */
-    getCategory() {
-        return this.category;
-    }
+    /** @type {MoveCategory[keyof typeof MoveCategory]} */
+    category;
 
     /** 
      * @param {MoveCategory[keyof typeof MoveCategory]} value 
      * @return {Move} 
      */
-    setCategory(value) {
+    withCategory(value) {
         this.category = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getTarget() {
-        return this.target;
-    }
+    /** @type {string} */
+    target;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setTarget(value) {
+    withTarget(value) {
         this.target = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getAccuracy() {
-        return this.accuracy;
-    }
+    /** @type {number} */
+    accuracy;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setAccuracy(value) {
+    withAccuracy(value) {
         this.accuracy = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getCritRatio() {
-        return this.critRatio;
-    }
+    /** @type {number} */
+    critRatio;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setCritRatio(value) {
+    withCritRatio(value) {
         this.critRatio = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getSecondaries() {
-        return this.secondaries;
-    }
+    /** @type {string} */
+    secondaries;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setSecondaries(value) {
+    withSecondaries(value) {
         this.secondaries = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getPriority() {
-        return this.priority;
-    }
+    /** @type {number} */
+    priority;
 
     /** 
      * @param {number} value 
      * @return {Move} 
      */
-    setPriority(value) {
+    withPriority(value) {
         this.priority = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getIgnoreOffensive() {
-        return this.ignoreOffensive;
-    }
+    /** @type {string} */
+    ignoreOffensive;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setIgnoreOffensive(value) {
+    withIgnoreOffensive(value) {
         this.ignoreOffensive = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getIgnoreDefensive() {
-        return this.ignoreDefensive;
-    }
+    /** @type {string} */
+    ignoreDefensive;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setIgnoreDefensive(value) {
+    withIgnoreDefensive(value) {
         this.ignoreDefensive = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getIgnoreImmunity() {
-        return this.ignoreImmunity;
-    }
+    /** @type {string} */
+    ignoreImmunity;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setIgnoreImmunity(value) {
+    withIgnoreImmunity(value) {
         this.ignoreImmunity = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getIgnoreEvasion() {
-        return this.ignoreEvasion;
-    }
+    /** @type {string} */
+    ignoreEvasion;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setIgnoreEvasion(value) {
+    withIgnoreEvasion(value) {
         this.ignoreEvasion = value;
         return this;
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getHasSheerForce() {
-        return this.hasSheerForce;
-    }
+    /** @type {boolean} */
+    hasSheerForce;
 
     /** 
      * @param {boolean} value 
      * @return {Move} 
      */
-    setHasSheerForce(value) {
+    withHasSheerForce(value) {
         this.hasSheerForce = value;
         return this;
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getNoPpBoosts() {
-        return this.noPpBoosts;
-    }
+    /** @type {boolean} */
+    noPpBoosts;
 
     /** 
      * @param {boolean} value 
      * @return {Move} 
      */
-    setNoPpBoosts(value) {
+    withNoPpBoosts(value) {
         this.noPpBoosts = value;
         return this;
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getIgnoreAbility() {
-        return this.ignoreAbility;
-    }
+    /** @type {boolean} */
+    ignoreAbility;
 
     /** 
      * @param {boolean} value 
      * @return {Move} 
      */
-    setIgnoreAbility(value) {
+    withIgnoreAbility(value) {
         this.ignoreAbility = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getZMove() {
-        return this.zMove;
-    }
+    /** @type {string} */
+    zMove;
 
     /** 
      * @param {string} value 
      * @return {Move} 
      */
-    setZMove(value) {
+    withZMove(value) {
         this.zMove = value;
         return this;
     }
@@ -491,434 +407,326 @@ export class Pokemon {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getNum() {
-        return this.num;
-    }
+    /** @type {number} */
+    num;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setNum(value) {
+    withNum(value) {
         this.num = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getGen() {
-        return this.gen;
-    }
+    /** @type {number} */
+    gen;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setGen(value) {
+    withGen(value) {
         this.gen = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getBaseForme() {
-        return this.baseForme;
-    }
+    /** @type {string} */
+    baseForme;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setBaseForme(value) {
+    withBaseForme(value) {
         this.baseForme = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getOtherFormes() {
-        return this.otherFormes;
-    }
+    /** @type {string} */
+    otherFormes;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setOtherFormes(value) {
+    withOtherFormes(value) {
         this.otherFormes = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getAbilities() {
-        return this.abilities;
-    }
+    /** @type {string} */
+    abilities;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setAbilities(value) {
+    withAbilities(value) {
         this.abilities = value;
         return this;
     }
 
-    /** 
-     * @return {PokeType[keyof typeof PokeType][]} 
-     */
-    getPokeTypes() {
-        return this.pokeTypes;
-    }
+    /** @type {PokeType[keyof typeof PokeType][]} */
+    pokeTypes;
 
     /** 
      * @param {PokeType[keyof typeof PokeType][]} value 
      * @return {Pokemon} 
      */
-    setPokeTypes(value) {
+    withPokeTypes(value) {
         this.pokeTypes = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getPrevo() {
-        return this.prevo;
-    }
+    /** @type {string} */
+    prevo;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setPrevo(value) {
+    withPrevo(value) {
         this.prevo = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getEvos() {
-        return this.evos;
-    }
+    /** @type {string} */
+    evos;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setEvos(value) {
+    withEvos(value) {
         this.evos = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getEvoLevel() {
-        return this.evoLevel;
-    }
+    /** @type {number} */
+    evoLevel;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setEvoLevel(value) {
+    withEvoLevel(value) {
         this.evoLevel = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getTier() {
-        return this.tier;
-    }
+    /** @type {string} */
+    tier;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setTier(value) {
+    withTier(value) {
         this.tier = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getDoublesTier() {
-        return this.doublesTier;
-    }
+    /** @type {string} */
+    doublesTier;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setDoublesTier(value) {
+    withDoublesTier(value) {
         this.doublesTier = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getNatDexTier() {
-        return this.natDexTier;
-    }
+    /** @type {string} */
+    natDexTier;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setNatDexTier(value) {
+    withNatDexTier(value) {
         this.natDexTier = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getEggGroups() {
-        return this.eggGroups;
-    }
+    /** @type {string} */
+    eggGroups;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setEggGroups(value) {
+    withEggGroups(value) {
         this.eggGroups = value;
         return this;
     }
 
-    /** 
-     * @return {boolean} 
-     */
-    getCanHatch() {
-        return this.canHatch;
-    }
+    /** @type {boolean} */
+    canHatch;
 
     /** 
      * @param {boolean} value 
      * @return {Pokemon} 
      */
-    setCanHatch(value) {
+    withCanHatch(value) {
         this.canHatch = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getGenderRatio() {
-        return this.genderRatio;
-    }
+    /** @type {string} */
+    genderRatio;
 
     /** 
      * @param {string} value 
      * @return {Pokemon} 
      */
-    setGenderRatio(value) {
+    withGenderRatio(value) {
         this.genderRatio = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getHp() {
-        return this.hp;
-    }
+    /** @type {number} */
+    hp;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setHp(value) {
+    withHp(value) {
         this.hp = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getAtk() {
-        return this.atk;
-    }
+    /** @type {number} */
+    atk;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setAtk(value) {
+    withAtk(value) {
         this.atk = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getDef() {
-        return this.def;
-    }
+    /** @type {number} */
+    def;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setDef(value) {
+    withDef(value) {
         this.def = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getSpa() {
-        return this.spa;
-    }
+    /** @type {number} */
+    spa;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setSpa(value) {
+    withSpa(value) {
         this.spa = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getSpd() {
-        return this.spd;
-    }
+    /** @type {number} */
+    spd;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setSpd(value) {
+    withSpd(value) {
         this.spd = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getSpe() {
-        return this.spe;
-    }
+    /** @type {number} */
+    spe;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setSpe(value) {
+    withSpe(value) {
         this.spe = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getWeight() {
-        return this.weight;
-    }
+    /** @type {number} */
+    weight;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setWeight(value) {
+    withWeight(value) {
         this.weight = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getHeight() {
-        return this.height;
-    }
+    /** @type {number} */
+    height;
 
     /** 
      * @param {number} value 
      * @return {Pokemon} 
      */
-    setHeight(value) {
+    withHeight(value) {
         this.height = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldResourceCfg_resource.AssetAddress} 
-     */
-    getFrontAtlasAssetAdress() {
-        return this.frontAtlasAssetAdress;
-    }
+    /** @type {__PokeworldResourceCfg_resource.AssetAddress} */
+    frontAtlasAssetAdress;
 
     /** 
      * @param {__PokeworldResourceCfg_resource.AssetAddress} value 
      * @return {Pokemon} 
      */
-    setFrontAtlasAssetAdress(value) {
+    withFrontAtlasAssetAdress(value) {
         this.frontAtlasAssetAdress = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldResourceCfg_resource.AssetAddress} 
-     */
-    getBackAtlasAssetAdress() {
-        return this.backAtlasAssetAdress;
-    }
+    /** @type {__PokeworldResourceCfg_resource.AssetAddress} */
+    backAtlasAssetAdress;
 
     /** 
      * @param {__PokeworldResourceCfg_resource.AssetAddress} value 
      * @return {Pokemon} 
      */
-    setBackAtlasAssetAdress(value) {
+    withBackAtlasAssetAdress(value) {
         this.backAtlasAssetAdress = value;
         return this;
     }
@@ -940,66 +748,50 @@ export class PokeTypeInfo {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {PokeTypeInfo} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {PokeType[keyof typeof PokeType]} 
-     */
-    getType() {
-        return this.type;
-    }
+    /** @type {PokeType[keyof typeof PokeType]} */
+    type;
 
     /** 
      * @param {PokeType[keyof typeof PokeType]} value 
      * @return {PokeTypeInfo} 
      */
-    setType(value) {
+    withType(value) {
         this.type = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getAtlasIndex() {
-        return this.atlasIndex;
-    }
+    /** @type {number} */
+    atlasIndex;
 
     /** 
      * @param {number} value 
      * @return {PokeTypeInfo} 
      */
-    setAtlasIndex(value) {
+    withAtlasIndex(value) {
         this.atlasIndex = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getColor() {
-        return this.color;
-    }
+    /** @type {string} */
+    color;
 
     /** 
      * @param {string} value 
      * @return {PokeTypeInfo} 
      */
-    setColor(value) {
+    withColor(value) {
         this.color = value;
         return this;
     }
@@ -1018,18 +810,14 @@ export class TbPokemon {
         ]
     }
 
-    /** 
-     * @return {Pokemon[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {Pokemon[]} */
+    dataList;
 
     /** 
      * @param {Pokemon[]} value 
      * @return {TbPokemon} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }
@@ -1048,18 +836,14 @@ export class TbMove {
         ]
     }
 
-    /** 
-     * @return {Move[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {Move[]} */
+    dataList;
 
     /** 
      * @param {Move[]} value 
      * @return {TbMove} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }
@@ -1078,18 +862,14 @@ export class TbPokeTypeInfo {
         ]
     }
 
-    /** 
-     * @return {PokeTypeInfo[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {PokeTypeInfo[]} */
+    dataList;
 
     /** 
      * @param {PokeTypeInfo[]} value 
      * @return {TbPokeTypeInfo} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }

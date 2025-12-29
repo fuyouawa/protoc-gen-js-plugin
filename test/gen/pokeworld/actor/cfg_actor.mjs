@@ -18,18 +18,14 @@ export class Actor {
     }
 
     // Oneof field (index: 0)
-    /** 
-     * @return {Player} 
-     */
-    getPlayer() {
-        return this.player;
-    }
+    /** @type {Player} */
+    player;
 
     /** 
      * @param {Player} value 
      * @return {Actor} 
      */
-    setPlayer(value) {
+    withPlayer(value) {
         this.player = value;
         return this;
     }
@@ -55,130 +51,98 @@ export class Player {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {Player} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {Player} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldResourceCfg_resource.ResourceId} 
-     */
-    getResourceId() {
-        return this.resourceId;
-    }
+    /** @type {__PokeworldResourceCfg_resource.ResourceId} */
+    resourceId;
 
     /** 
      * @param {__PokeworldResourceCfg_resource.ResourceId} value 
      * @return {Player} 
      */
-    setResourceId(value) {
+    withResourceId(value) {
         this.resourceId = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getWalkSpeed() {
-        return this.walkSpeed;
-    }
+    /** @type {number} */
+    walkSpeed;
 
     /** 
      * @param {number} value 
      * @return {Player} 
      */
-    setWalkSpeed(value) {
+    withWalkSpeed(value) {
         this.walkSpeed = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldResourceCfg_resource.ResourceId} 
-     */
-    getWalkAtlasResourceId() {
-        return this.walkAtlasResourceId;
-    }
+    /** @type {__PokeworldResourceCfg_resource.ResourceId} */
+    walkAtlasResourceId;
 
     /** 
      * @param {__PokeworldResourceCfg_resource.ResourceId} value 
      * @return {Player} 
      */
-    setWalkAtlasResourceId(value) {
+    withWalkAtlasResourceId(value) {
         this.walkAtlasResourceId = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getRunSpeed() {
-        return this.runSpeed;
-    }
+    /** @type {number} */
+    runSpeed;
 
     /** 
      * @param {number} value 
      * @return {Player} 
      */
-    setRunSpeed(value) {
+    withRunSpeed(value) {
         this.runSpeed = value;
         return this;
     }
 
-    /** 
-     * @return {number} 
-     */
-    getStartingTurnTime() {
-        return this.startingTurnTime;
-    }
+    /** @type {number} */
+    startingTurnTime;
 
     /** 
      * @param {number} value 
      * @return {Player} 
      */
-    setStartingTurnTime(value) {
+    withStartingTurnTime(value) {
         this.startingTurnTime = value;
         return this;
     }
 
-    /** 
-     * @return {__PokeworldResourceCfg_resource.ResourceId} 
-     */
-    getIllustrationResourceId() {
-        return this.illustrationResourceId;
-    }
+    /** @type {__PokeworldResourceCfg_resource.ResourceId} */
+    illustrationResourceId;
 
     /** 
      * @param {__PokeworldResourceCfg_resource.ResourceId} value 
      * @return {Player} 
      */
-    setIllustrationResourceId(value) {
+    withIllustrationResourceId(value) {
         this.illustrationResourceId = value;
         return this;
     }
@@ -197,18 +161,14 @@ export class TbPlayer {
         ]
     }
 
-    /** 
-     * @return {Player[]} 
-     */
-    getDataList() {
-        return this.dataList;
-    }
+    /** @type {Player[]} */
+    dataList;
 
     /** 
      * @param {Player[]} value 
      * @return {TbPlayer} 
      */
-    setDataList(value) {
+    withDataList(value) {
         this.dataList = value;
         return this;
     }

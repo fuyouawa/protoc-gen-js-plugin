@@ -88,18 +88,14 @@ export class EntityInfo {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getId() {
-        return this.id;
-    }
+    /** @type {number} */
+    id;
 
     /** 
      * @param {number} value 
      * @return {EntityInfo} 
      */
-    setId(value) {
+    withId(value) {
         this.id = value;
         return this;
     }
@@ -118,18 +114,14 @@ export class ActorInfo {
         ]
     }
 
-    /** 
-     * @return {number} 
-     */
-    getCfgId() {
-        return this.cfgId;
-    }
+    /** @type {number} */
+    cfgId;
 
     /** 
      * @param {number} value 
      * @return {ActorInfo} 
      */
-    setCfgId(value) {
+    withCfgId(value) {
         this.cfgId = value;
         return this;
     }
@@ -148,18 +140,14 @@ export class PlayerInfo {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getNickname() {
-        return this.nickname;
-    }
+    /** @type {string} */
+    nickname;
 
     /** 
      * @param {string} value 
      * @return {PlayerInfo} 
      */
-    setNickname(value) {
+    withNickname(value) {
         this.nickname = value;
         return this;
     }
@@ -178,18 +166,14 @@ export class NpcInfo {
         ]
     }
 
-    /** 
-     * @return {string} 
-     */
-    getName() {
-        return this.name;
-    }
+    /** @type {string} */
+    name;
 
     /** 
      * @param {string} value 
      * @return {NpcInfo} 
      */
-    setName(value) {
+    withName(value) {
         this.name = value;
         return this;
     }
@@ -208,18 +192,14 @@ export class EntityTransform {
         ]
     }
 
-    /** 
-     * @return {__PokeworldMathComm_math.Vector2Int} 
-     */
-    getPos() {
-        return this.pos;
-    }
+    /** @type {__PokeworldMathComm_math.Vector2Int} */
+    pos;
 
     /** 
      * @param {__PokeworldMathComm_math.Vector2Int} value 
      * @return {EntityTransform} 
      */
-    setPos(value) {
+    withPos(value) {
         this.pos = value;
         return this;
     }
@@ -238,18 +218,14 @@ export class ActorTransform {
         ]
     }
 
-    /** 
-     * @return {Direction[keyof typeof Direction]} 
-     */
-    getDirection() {
-        return this.direction;
-    }
+    /** @type {Direction[keyof typeof Direction]} */
+    direction;
 
     /** 
      * @param {Direction[keyof typeof Direction]} value 
      * @return {ActorTransform} 
      */
-    setDirection(value) {
+    withDirection(value) {
         this.direction = value;
         return this;
     }
@@ -268,18 +244,14 @@ export class ActorState {
         ]
     }
 
-    /** 
-     * @return {MotionState[keyof typeof MotionState]} 
-     */
-    getMotionState() {
-        return this.motionState;
-    }
+    /** @type {MotionState[keyof typeof MotionState]} */
+    motionState;
 
     /** 
      * @param {MotionState[keyof typeof MotionState]} value 
      * @return {ActorState} 
      */
-    setMotionState(value) {
+    withMotionState(value) {
         this.motionState = value;
         return this;
     }

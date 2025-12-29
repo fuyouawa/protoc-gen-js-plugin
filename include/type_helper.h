@@ -51,6 +51,11 @@ public:
     static std::string GetMethodName(
         const google::protobuf::FieldDescriptorProto& field);
 
+    // Get JavaScript default value for a field
+    static std::string GetJsDefaultValue(
+        const google::protobuf::FieldDescriptorProto& field,
+        const google::protobuf::FileDescriptorProto& proto_file);
+
 private:
     static TypeNameTransformer type_name_transformer_;
 };
