@@ -141,8 +141,8 @@ async function testOurJsonToProtobufJs() {
     const vector3Type = root.lookupType('pokeworld.math.comm.Vector3');
 
     // Create object using our generated class
-    const ourVec = Object.create(Vector3.prototype);
-    ourVec.setX(1.5).setY(2.5).setZ(3.5);
+    const ourVec = new Vector3();
+    ourVec.withX(1.5).withY(2.5).withZ(3.5);
 
     // Serialize to JSON using our toJson
     const ourJson = toJson(ourVec);
@@ -165,8 +165,8 @@ async function testOurJsonToProtobufJs() {
     console.log('Testing Vector2Int...');
     const vector2IntType = root.lookupType('pokeworld.math.comm.Vector2Int');
 
-    const ourVec2Int = Object.create(Vector2Int.prototype);
-    ourVec2Int.setX(42).setY(99);
+    const ourVec2Int = new Vector2Int();
+    ourVec2Int.withX(42).withY(99);
 
     const ourJson2Int = toJson(ourVec2Int);
     const jsonObj2Int = JSON.parse(ourJson2Int);
@@ -181,8 +181,8 @@ async function testOurJsonToProtobufJs() {
     console.log('Testing Player...');
     try {
         const playerType = root.lookupType('pokeworld.actor.cfg.Player');
-        const ourPlayer = Object.create(Player.prototype);
-        ourPlayer.setId(123).setName('Test Player').setWalkSpeed(5.0);
+        const ourPlayer = new Player();
+        ourPlayer.withId(123).withName('Test Player').withWalkSpeed(5.0);
 
         const ourPlayerJson = toJson(ourPlayer);
         const jsonObjPlayer = JSON.parse(ourPlayerJson);
@@ -221,9 +221,9 @@ async function testProtobufJsToOurJson() {
 
     // Try to parse using our fromJson
     const ourVec = fromJson(Vector3, pbObject);
-    assert(ourVec.getX() === 10.5, `Our class parsed x = ${ourVec.getX()}`);
-    assert(ourVec.getY() === 20.5, `Our class parsed y = ${ourVec.getY()}`);
-    assert(ourVec.getZ() === 30.5, `Our class parsed z = ${ourVec.getZ()}`);
+    assert(ourVec.x === 10.5, `Our class parsed x = ${ourVec.x}`);
+    assert(ourVec.y === 20.5, `Our class parsed y = ${ourVec.y}`);
+    assert(ourVec.z === 30.5, `Our class parsed z = ${ourVec.z}`);
 
     console.log('✅ Vector3 reverse compatibility test passed');
 
@@ -235,8 +235,8 @@ async function testProtobufJsToOurJson() {
     const pbObject2Int = vector2IntType.toObject(pbVec2Int);
 
     const ourVec2Int = fromJson(Vector2Int, pbObject2Int);
-    assert(ourVec2Int.getX() === 100, `Our class parsed x = ${ourVec2Int.getX()}`);
-    assert(ourVec2Int.getY() === 200, `Our class parsed y = ${ourVec2Int.getY()}`);
+    assert(ourVec2Int.x === 100, `Our class parsed x = ${ourVec2Int.x}`);
+    assert(ourVec2Int.y === 200, `Our class parsed y = ${ourVec2Int.y}`);
 
     console.log('✅ Vector2Int reverse compatibility test passed');
 
@@ -255,10 +255,10 @@ async function testProtobufJsToOurJson() {
         const pbPlayerObject = playerType.toObject(pbPlayer);
 
         const ourPlayer = fromJson(Player, pbPlayerObject);
-        assert(ourPlayer.getId() === 999, `Our class parsed id = ${ourPlayer.getId()}`);
-        assert(ourPlayer.getName() === 'Protobuf Player', `Our class parsed name = ${ourPlayer.getName()}`);
-        assert(ourPlayer.getWalkSpeed() === 7.5, `Our class parsed walkSpeed = ${ourPlayer.getWalkSpeed()}`);
-        assert(ourPlayer.getResourceId() === 2, `Our class parsed resourceId = ${ourPlayer.getResourceId()}`);
+        assert(ourPlayer.id === 999, `Our class parsed id = ${ourPlayer.id}`);
+        assert(ourPlayer.name === 'Protobuf Player', `Our class parsed name = ${ourPlayer.name}`);
+        assert(ourPlayer.walkSpeed === 7.5, `Our class parsed walkSpeed = ${ourPlayer.walkSpeed}`);
+        assert(ourPlayer.resourceId === 2, `Our class parsed resourceId = ${ourPlayer.resourceId}`);
 
         console.log('✅ Player reverse compatibility test passed');
     } catch (error) {
@@ -301,21 +301,21 @@ async function testNestedMessageCompatibility() {
     // Parse with our fromJson
     const ourActor = fromJson(Actor, pbActorObject);
 
-    const ourPlayer = ourActor.getPlayer();
+    const ourPlayer = ourActor.player;
     assert(ourPlayer !== undefined, 'Nested player exists');
-    assert(ourPlayer.getId() === 777, `Our class parsed nested player id = ${ourPlayer.getId()}`);
-    assert(ourPlayer.getName() === 'Nested Player', `Our class parsed nested player name = ${ourPlayer.getName()}`);
+    assert(ourPlayer.id === 777, `Our class parsed nested player id = ${ourPlayer.id}`);
+    assert(ourPlayer.name === 'Nested Player', `Our class parsed nested player name = ${ourPlayer.name}`);
 
     console.log('✅ Nested message compatibility test passed');
 
     // Now test the reverse: our nested message -> protobuf.js
     console.log('Testing reverse: Our nested message -> protobuf.js');
 
-    const ourPlayer2 = Object.create(Player.prototype);
-    ourPlayer2.setId(888).setName('Our Nested Player').setWalkSpeed(4.0);
+    const ourPlayer2 = new Player();
+    ourPlayer2.withId(888).withName('Our Nested Player').withWalkSpeed(4.0);
 
-    const ourActor2 = Object.create(Actor.prototype);
-    ourActor2.setPlayer(ourPlayer2);
+    const ourActor2 = new Actor();
+    ourActor2.withPlayer(ourPlayer2);
 
     const ourActorJson = toJson(ourActor2);
     const ourActorObj = JSON.parse(ourActorJson);
@@ -354,26 +354,26 @@ async function testRepeatedFieldCompatibility() {
 
     // Parse with our fromJson
     const ourTbPlayer = fromJson(TbPlayer, pbTbPlayerObject);
-    const ourPlayers = ourTbPlayer.getDataList();
+    const ourPlayers = ourTbPlayer.dataList;
 
     assert(Array.isArray(ourPlayers), 'dataList is array');
     assert(ourPlayers.length === 3, `Array length = ${ourPlayers.length}`);
-    assert(ourPlayers[0].getId() === 1, `First player id = ${ourPlayers[0].getId()}`);
-    assert(ourPlayers[1].getName() === 'Player 2', `Second player name = ${ourPlayers[1].getName()}`);
+    assert(ourPlayers[0].id === 1, `First player id = ${ourPlayers[0].id}`);
+    assert(ourPlayers[1].name === 'Player 2', `Second player name = ${ourPlayers[1].name}`);
 
     console.log('✅ Repeated field compatibility test passed');
 
     // Test reverse
     console.log('Testing reverse: Our repeated field -> protobuf.js');
 
-    const ourPlayer1 = Object.create(Player.prototype);
-    ourPlayer1.setId(10).setName('Our Player 1');
+    const ourPlayer1 = new Player();
+    ourPlayer1.withId(10).withName('Our Player 1');
 
-    const ourPlayer2 = Object.create(Player.prototype);
-    ourPlayer2.setId(20).setName('Our Player 2');
+    const ourPlayer2 = new Player();
+    ourPlayer2.withId(20).withName('Our Player 2');
 
-    const ourTbPlayer2 = Object.create(TbPlayer.prototype);
-    ourTbPlayer2.setDataList([ourPlayer1, ourPlayer2]);
+    const ourTbPlayer2 = new TbPlayer();
+    ourTbPlayer2.withDataList([ourPlayer1, ourPlayer2]);
 
     const ourTbPlayerJson = toJson(ourTbPlayer2);
     const ourTbPlayerObj = JSON.parse(ourTbPlayerJson);

@@ -25,8 +25,8 @@ function deepEqual(a, b) {
 function testBasicSerialization() {
     console.log('\n=== Test Basic Serialization ===');
 
-    const vec = Object.create(Vector3.prototype);
-    vec.setX(1.5).setY(2.5).setZ(3.5);
+    const vec = new Vector3();
+    vec.withX(1.5).withY(2.5).withZ(3.5);
 
     const json = toJson(vec);
     const expected = '{"x":1.5,"y":2.5,"z":3.5}';
@@ -46,14 +46,14 @@ function testBasicDeserialization() {
     const json = { x: 10, y: 20, z: 30 };
     const vec = fromJson(Vector3, json);
 
-    assert(vec.getX() === 10, `Vector3.x = ${vec.getX()}`);
-    assert(vec.getY() === 20, `Vector3.y = ${vec.getY()}`);
-    assert(vec.getZ() === 30, `Vector3.z = ${vec.getZ()}`);
+    assert(vec.x === 10, `Vector3.x = ${vec.x}`);
+    assert(vec.y === 20, `Vector3.y = ${vec.y}`);
+    assert(vec.z === 30, `Vector3.z = ${vec.z}`);
 
     // Test JSON string input
     const jsonStr = '{"x":100,"y":200,"z":300}';
     const vec2 = fromJson(Vector3, jsonStr);
-    assert(vec2.getX() === 100, `Vector3 from string x = ${vec2.getX()}`);
+    assert(vec2.x === 100, `Vector3 from string x = ${vec2.x}`);
 
     console.log('✓ Basic deserialization passed');
 }
@@ -62,14 +62,14 @@ function testBasicDeserialization() {
 function testRoundTrip() {
     console.log('\n=== Test Round-trip Serialization ===');
 
-    const original = Object.create(Vector2Int.prototype);
-    original.setX(42).setY(99);
+    const original = new Vector2Int();
+    original.withX(42).withY(99);
 
     const json = toJson(original);
     const restored = fromJson(Vector2Int, json);
 
-    assert(original.getX() === restored.getX(), 'X values match');
-    assert(original.getY() === restored.getY(), 'Y values match');
+    assert(original.x === restored.x, 'X values match');
+    assert(original.y === restored.y, 'Y values match');
 
     console.log('✓ Round-trip serialization passed');
 }
@@ -79,11 +79,11 @@ function testNestedMessage() {
     console.log('\n=== Test Nested Message ===');
 
     // Actor contains Player message
-    const player = Object.create(Player.prototype);
-    player.setId(123).setName('Test Player').setWalkSpeed(5.0);
+    const player = new Player();
+    player.withId(123).withName('Test Player').withWalkSpeed(5.0);
 
-    const actor = Object.create(Actor.prototype);
-    actor.setPlayer(player);
+    const actor = new Actor();
+    actor.withPlayer(player);
 
     // Serialize
     const json = toJson(actor);
@@ -93,7 +93,7 @@ function testNestedMessage() {
 
     // Deserialize
     const restored = fromJson(Actor, json);
-    assert(restored.getPlayer().getId() === 123, 'Nested message deserialized correctly');
+    assert(restored.player.id === 123, 'Nested message deserialized correctly');
 
     console.log('✓ Nested message test passed');
 }
@@ -102,13 +102,13 @@ function testNestedMessage() {
 function testRepeatedField() {
     console.log('\n=== Test Repeated Field ===');
 
-    const tbPlayer = Object.create(TbPlayer.prototype);
-    const player1 = Object.create(Player.prototype);
-    player1.setId(1).setName('Player1');
-    const player2 = Object.create(Player.prototype);
-    player2.setId(2).setName('Player2');
+    const tbPlayer = new TbPlayer();
+    const player1 = new Player();
+    player1.withId(1).withName('Player1');
+    const player2 = new Player();
+    player2.withId(2).withName('Player2');
 
-    tbPlayer.setDataList([player1, player2]);
+    tbPlayer.withDataList([player1, player2]);
 
     // Serialize
     const json = toJson(tbPlayer);
@@ -118,10 +118,10 @@ function testRepeatedField() {
 
     // Deserialize
     const restored = fromJson(TbPlayer, json);
-    const list = restored.getDataList();
+    const list = restored.dataList;
     assert(list.length === 2, 'Deserialized array length correct');
-    assert(list[0].getId() === 1, 'First element correct');
-    assert(list[1].getId() === 2, 'Second element correct');
+    assert(list[0].id === 1, 'First element correct');
+    assert(list[1].id === 2, 'Second element correct');
 
     console.log('✓ Repeated field test passed');
 }
@@ -131,9 +131,9 @@ function testEnumField() {
     console.log('\n=== Test Enum Field ===');
 
     // Assuming ResourceId enum is defined
-    const player = Object.create(Player.prototype);
+    const player = new Player();
     // Enum values are numbers in JavaScript
-    player.setResourceId(ResourceId?.PLAYER || 1); // Use number if ResourceId not defined
+    player.withResourceId(ResourceId?.PLAYER || 1); // Use number if ResourceId not defined
 
     const json = toJson(player);
     const parsed = JSON.parse(json);
@@ -141,7 +141,7 @@ function testEnumField() {
 
     // Deserialize
     const restored = fromJson(Player, json);
-    assert(restored.getResourceId() === player.getResourceId(), 'Enum value correct');
+    assert(restored.resourceId === player.resourceId, 'Enum value correct');
 
     console.log('✓ Enum field test passed');
 }
@@ -195,23 +195,23 @@ function testOptionalFields() {
     console.log('\n=== Test Optional Fields ===');
 
     // Create Rect with only some fields set
-    const rect = Object.create(Rect.prototype);
-    rect.setX(10).setY(20);
-    // width and height are undefined
+    const rect = new Rect();
+    rect.withX(10).withY(20);
+    // width and height are default values
 
     const json = toJson(rect);
     const parsed = JSON.parse(json);
     assert(parsed.x === 10, 'x field correct');
     assert(parsed.y === 20, 'y field correct');
-    assert(parsed.width === undefined, 'width field undefined');
-    assert(parsed.height === undefined, 'height field undefined');
+    assert(parsed.width === 0, 'width field default value');
+    assert(parsed.height === 0, 'height field default value');
 
-    // On deserialization, missing fields should be undefined
+    // On deserialization, missing fields should have default values
     const restored = fromJson(Rect, json);
-    assert(restored.getX() === 10, 'Restored x correct');
-    assert(restored.getY() === 20, 'Restored y correct');
-    assert(restored.getWidth() === undefined, 'Restored width undefined');
-    assert(restored.getHeight() === undefined, 'Restored height undefined');
+    assert(restored.x === 10, 'Restored x correct');
+    assert(restored.y === 20, 'Restored y correct');
+    assert(restored.width === 0, 'Restored width default value');
+    assert(restored.height === 0, 'Restored height default value');
 
     console.log('✓ Optional fields test passed');
 }
